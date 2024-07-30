@@ -5,14 +5,15 @@ from vllm import LLM, SamplingParams
 from prompt import math_prompt
 from use_datasets import load_data
 
-PATH_TO_CODE = "new_generated_data/code_agent/"
+# PATH_TO_CODE = "score_memory/code_agent/mbpp_full_llama2chat"
 # PATH_TO_CODE = "open-instruct/data"
+PATH_TO_CODE = "new_generated_data/code_agent"
 
 part_num = 4
 def main():
     data_code = []
     for part in range(1, part_num + 1):
-        with open(f"{PATH_TO_CODE}/mbpp_full_llama2chat_part{part}_iter3.json", "r") as f:
+        with open(f"{PATH_TO_CODE}/mbpp_full_llama2chat_part{part}_iter6.json", "r") as f:
             data_code += json.load(f)
     # with open(f"{PATH_TO_CODE}/label_unit_test_part1_iter1.json", "r") as f:
     #     for line in f:

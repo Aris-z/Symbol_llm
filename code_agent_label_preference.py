@@ -366,11 +366,13 @@ def label_preference(part, args):
         code_str_1 = data_code[i]['response']
         flag_1 = exc_code(code_str_1, validation="code")
         flag_2_acc = 0
+        # 验证label unit test和validation generate unit test准确性
+        # 验证unit test 和 validation 结果的差异性输出一次log
         for j in range(VALI_REFLECT_NUM):
             code_str_2 = [data_code[i]["response"], data_validation[i * VALI_REFLECT_NUM + j]["response"]]
             if exc_code(code_str_2, validation="validation"):
                 flag_2_acc += 1
-        if flag_2_acc / VALI_REFLECT_NUM >= 0.5:
+        if flag_2_acc / VALI_REFLECT_NUM >= 0.8:
             flag_2 = True
         else:
             flag_2 = False
