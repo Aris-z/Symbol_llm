@@ -10,22 +10,16 @@ import argparse
 import logging
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from prompt import math_prompt, theoremqa_prompt
+from prompt import code_prompt
 
 
 logger = logging.getLogger('self_training_logger')
 logger.setLevel(logging.DEBUG)
 
 
-
+VALI_REFLECT_NUM = 5
 def parse_args():
     parser = argparse.ArgumentParser(description="self-training framework combining symbolic solver and llms")
-    parser.add_argument(
-        "--domain",
-        type=str,
-        default="math",
-        help="The name of the domain [math,agent,logic].",
-    )
     parser.add_argument(
         "--cur_iter",
         type=int,
@@ -35,13 +29,18 @@ def parse_args():
     parser.add_argument(
         "--vllm_batchsize",
         type=int,
-        default=4,
+        default=1,
         help="batchsize for vllm",
+    )
+    parser.add_argument(
+        "--task_name",
+        type=str,
+        default="mbpp",
     )
     parser.add_argument(
         "--task_prefix",
         type=str,
-        default="gsm_math_full_llama2chat",
+        default="mbpp_full_llama2chat",
         help="The prefix for the dataset name, directory name and save path",
     )
     parser.add_argument(
@@ -54,7 +53,7 @@ def parse_args():
         "--base_model",
         type=str,
         default="llama2chat",
-        help="Base Model",
+        help="base model",
     )
     parser.add_argument(
         "--model_size",
@@ -62,83 +61,90 @@ def parse_args():
         default="7B",
         help="Model size",
     )
+    parser.add_argument(
+        "--few_shot",
+        action="store_true",
+        help="Whether to use few-shot prompting",
+    )
     args = parser.parse_args()
     return args
 
-
 def extract_code_blocks(text):
     text = text.strip()
-    pattern = r"```(.*?)```"
+    pattern = r"\[PYTHON\](.*?)\[PYTHON\]"
     code_blocks = re.findall(pattern, text, re.DOTALL)
     if code_blocks:
-        if code_blocks[0].startswith("python\n"):
-            return "```python\n"+code_blocks[0].split("python\n")[1].strip()+"\n```"
+        if code_blocks[0].startswith("[PYTHON]"):
+            return "[PYTHON]\n" + code_blocks[0].split("[PYTHON]")[1].strip() + "\n[PYTHON]"
         else:
-            return "```python\n"+code_blocks[0]+"\n```"
+            return "[PYTHON]\n" + code_blocks[0].strip() + "\n[PYTHON]"
     else:
-        return "```python\n"+text+"\n```".strip()
+        return "[PYTHON]\n" + text.strip() + "\n[PYTHON]"
 
 
 def main():
     args = parse_args()
 
-    PATH_TO_CONVERTED_WEIGHTS = f"output/{args.task_prefix}_sft_iter{args.cur_iter}_sft_tune_{args.base_model}_{args.model_size}/"
+    PATH_TO_CONVERTED_WEIGHTS = f"output/validation_agent/{args.task_prefix}_sft_iter{args.cur_iter}_sft_tune_{args.base_model}_{args.model_size}_merged/"
     llm = LLM(model=PATH_TO_CONVERTED_WEIGHTS, tensor_parallel_size=1)
 
     for part in [f"part{args.part_id}"]:
-
-        test_path = f"open-instruct/data/gsm_math_full_{part}.json"
-        with open(test_path) as file:
-            data_test = json.load(file)
-        print(test_path)
-
-        with open(f"new_generated_data/{args.task_prefix}_{part}_iter{args.cur_iter+1}.json") as file:
+        with open(f"new_generated_data/validation_agent/{args.task_prefix}_{part}_iter{args.cur_iter+1}.json") as file:
             data_before = json.load(file)
 
-        assert len(data_test)==len(data_before)//5
         result = []
-        for i in range(0,len(data_test),1):
+        for i in range(0,len(data_before)//VALI_REFLECT_NUM,1):
             result_dict = {}
-            prompt = data_test[i]['input']
+            empty_dict ={
+                    "code_id": data_before[i*VALI_REFLECT_NUM]["code_id"],
+                    "validation_id": -1,
+                    "question": data_before[i*VALI_REFLECT_NUM]["question"],
+                    "solution_code": "",
+                    "response": "",
+                    "target": "",
+                    "logprobs": -99999
+                }
+            if data_before[i*VALI_REFLECT_NUM]["validation_id"] == -1:
+                result += [empty_dict for _ in range(VALI_REFLECT_NUM)] 
+                continue
+            prompt = data_before[i]['question']
             sampling_params = SamplingParams(max_tokens=4096,n=1)
             # prompts = [prompt]
             # instruction = "Repair the provided Python code to solve the given problem."
-            instruction = "You are provided with a Python code to solve the given problem. You can either repair and refine it, or simply return the original solution.\n"
-            prompts = [instruction + "\nThe question is:\n" + data_test[i]['input'] \
-                        + "\nThe current Python code is:\n" + extract_code_blocks(data_before[i*5+j]['response']) \
-                        + "\nThe solution code is:\n"
-                        for j in range(5)]
+            instruction = "You are provided with an unit test code to validate a code for given problem. You can either repair and refine this unit test, or simply return the original solution. Just output the code directly. DO NOT add additional explanations or introducement in the answer unless you are asked to.\n"
+            prompts = [code_prompt.VALI_REPAIR_INSTRUCTION + "\nProblem:\n" + prompt + "\n\Test:n" + data_before[i*VALI_REFLECT_NUM+j]["test_list"][0]\
+                        + "\nThe current solution is:\n" + extract_code_blocks(data_before[i*VALI_REFLECT_NUM+j]['solution_code']) \
+                        + "\nThe current unit test code is:\n" + data_before[i*VALI_REFLECT_NUM+j]["response"]
+                        + "\nThe repaired unit test code is:\n" for j in range(VALI_REFLECT_NUM)]
             try:
                 outputs = llm.generate(prompts, sampling_params)
             except:
                 outputs = []
             # for _ in range(5):
             if outputs:
-                outputs = outputs[:5]  # trunct to 5
-                for j, output in enumerate(outputs):
+                outputs = outputs[:VALI_REFLECT_NUM]  # trunct to 5
+                for _, output in enumerate(outputs):
                     # print(output)
                     response_list = output.outputs
+                    j = 0
                     for response in response_list:
                         response_text = response.text
                         result_dict = {}
                         # response = response.split(prompt)[1].strip()
                         response_text = response_text.strip()
-                        result_dict['id'] = i
-                        result_dict['question'] = data_test[i]['input']
+                        result_dict['code_id'] = data_before[i*VALI_REFLECT_NUM+j]['code_id']
+                        result_dict['validation_id'] = data_before[i*VALI_REFLECT_NUM+j]['validation_id']
+                        result_dict['question'] = data_before[i*VALI_REFLECT_NUM+j]['question']
+                        result_dict['solution_code'] = data_before[i*VALI_REFLECT_NUM+j]['solution_code']
                         result_dict['response'] = response_text
-                        result_dict['target'] = data_test[i]['label']
+                        result_dict['test_list'] = data_before[i*VALI_REFLECT_NUM+j]["test_list"]
+                        result_dict['target'] = data_before[i*VALI_REFLECT_NUM+j]['target']
                         result_dict['logprobs'] = response.cumulative_logprob / (len(response.token_ids)+1e-8)
                         result.append(result_dict)
+                        j += 1
                         # print(response)
             else:
-                result_dict = {}
-                # response = response.split(prompt)[1].strip()
-                result_dict['id'] = i
-                result_dict['question'] = data_test[i]['input']
-                result_dict['response'] = ""
-                result_dict['target'] = data_test[i]['label']
-                result_dict['logprobs'] = -99999
-                result.append(result_dict)
+                result.append(empty_dict)
                 print("The response is empty")
 
                     # print("-----")
@@ -147,10 +153,10 @@ def main():
             # solve the mistakes
             if len(result) % 5 != 0:
                 result += [result_dict for _ in range(5-len(result)%5)]
-            print(f"====={i+j}/{len(data_test)}=====", (i+j) / len(data_test))
+            print(f"====={i*VALI_REFLECT_NUM+j}/{len(data_before)}=====", (i*VALI_REFLECT_NUM+j) / len(data_before))
 
 
-        test_result_folder = f"new_generated_data/"
+        test_result_folder = f"new_generated_data/validation_agent/"
         if not os.path.exists(test_result_folder):
             os.system(f"mkdir -p {test_result_folder}")
         # with open(f"{test_result_folder}/gsm_math_full_13b_{part}_iter0.json",'w') as file:

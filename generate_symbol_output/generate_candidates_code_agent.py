@@ -1,3 +1,4 @@
+# To do: Prompt for code agent candidate generation
 import torch
 from transformers import AutoTokenizer, LlamaForCausalLM
 import json
@@ -10,7 +11,8 @@ import argparse
 import logging
 import subprocess
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from prompt import math_prompt, theoremqa_prompt
+from prompt import math_prompt,code_prompt
+from use_datasets import load_data
 
 logger = logging.getLogger('self_training_logger')
 logger.setLevel(logging.DEBUG)
@@ -32,9 +34,14 @@ def parse_args():
         help="batchsize for vllm",
     )
     parser.add_argument(
+        "--task_name",
+        type=str,
+        default="mbpp",
+    )
+    parser.add_argument(
         "--task_prefix",
         type=str,
-        default="gsm_math_full_llama2chat",
+        default="mbpp_full_llama2chat",
         help="The prefix for the dataset name, directory name and save path",
     )
     parser.add_argument(
@@ -70,33 +77,28 @@ def main():
     if args.few_shot and args.base_model=="llama2chat":
         PATH_TO_CONVERTED_WEIGHTS = f"/mnt/nas/data/yihan/Code/share_model/Llama-2-7b-chat-hf"
     else:
-        PATH_TO_CONVERTED_WEIGHTS=f"/mnt/nas/data/yihan/Code/symbol-llm-v2/output/{args.task_prefix}_sft_iter{args.cur_iter}_sft_tune_{args.base_model}_{args.model_size}/"
+        PATH_TO_CONVERTED_WEIGHTS=f"/mnt/nas/data/yihan/Code/symbol-llm-v2/output/code_agent/{args.task_prefix}_sft_iter{args.cur_iter}_sft_tune_{args.base_model}_{args.model_size}_merged/"
 
     llm = LLM(model=PATH_TO_CONVERTED_WEIGHTS, tensor_parallel_size=1, trust_remote_code=True)
     tokenizer = llm.get_tokenizer()
     tokenizer.pad_token = tokenizer.eos_token
 
     for part in [f"part{args.part_id}"]:
-        test_path = f"open-instruct/data/gsm_math_full_{part}.json"
-        # test_path = f"symbol-llm-v2/open-instruct/data/theoremqa_train.json"
-        with open(test_path) as file:
-            data_test = json.load(file)
-        print(test_path)
+        data_test = load_data(args.task_name, args.part_id)
         result = []
         for i in range(0,len(data_test),args.vllm_batchsize):
             result_dict = {}
-            prompt = data_test[i]['input']
             sampling_params = SamplingParams(max_tokens=2200,n=5)
             # prompts = [prompt]
             # instruction = "Write Python code to solve the question. "
-            instruction = "Write Python code to solve the question.\nThe returned value of the program is supposed to be the answer. It should be integer or float or list of integer/float.\n"
+            instruction = "Write Python code to solve the question.\nThe returned value of the program is supposed to be the right answer to any possible values for this question and bug free. Just ONLY output the code directly. DO NOT add additional explanations or introducement in the answer unless you are asked to.\n"
 
             if args.few_shot:
-                prompts = [instruction + "\n" + math_prompt.MATH_PROMPT_FS + "\nThe question is:\n" + data_test[j]['input']
-                            + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
+                prompts = [code_prompt.CODE_INSTRUCTION + "\n" + code_prompt.CODE_PROMPT_FS + "\nProblem:\n" + data_test[j]['input']
+                            + "\nTest:\n" + data_test[j]["test_list"][0] + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
             else:
-                prompts = [instruction + "\nThe question is:\n" + data_test[j]['input']
-                            + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
+                prompts = [code_prompt.CODE_INSTRUCTION + "\n" + code_prompt.CODE_PROMPT_FS + "\nProblem:\n" + data_test[j]['input']
+                            + "\nTest:\n" + data_test[j]["test_list"][0] + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
 
             try:
                 # print(prompts)
@@ -121,6 +123,7 @@ def main():
                         result_dict['response'] = response_text
                         result_dict['target'] = data_test[i]['label']
                         result_dict['logprobs'] = response.cumulative_logprob / (len(response.token_ids)+1e-8)
+                        result_dict['test_list'] = data_test[i]['test_list']
                         result.append(result_dict)
                         # print(response)
             else:
@@ -131,6 +134,7 @@ def main():
                 result_dict['response'] = ""
                 result_dict['target'] = data_test[i]['label']
                 result_dict['logprobs'] = -99999
+                result_dict['test_list'] = data_test[i]['test_list']
                 result.append(result_dict)
                 print("The response is empty")
 
@@ -142,13 +146,13 @@ def main():
             print(f"====={i+j}/{len(data_test)}=====", (i+j) / len(data_test))
 
         if args.few_shot:
-            test_result_folder = f"score_memory/{args.task_prefix}"
+            test_result_folder = f"score_memory/code_agent/{args.task_prefix}"
             if not os.path.exists(test_result_folder):
                 os.system(f"mkdir -p {test_result_folder}")
             with open(f"{test_result_folder}/{args.task_prefix}_{part}_iter0.json", 'w') as file:
                 json.dump(result, file, indent=4)
         else:
-            test_result_folder = f"new_generated_data/"
+            test_result_folder = f"new_generated_data/code_agent"
             if not os.path.exists(test_result_folder):
                 os.system(f"mkdir -p {test_result_folder}")
             # with open(f"{test_result_folder}/gsm_math_full_13b_{part}_iter0.json",'w') as file:

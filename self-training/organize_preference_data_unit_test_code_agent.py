@@ -13,11 +13,13 @@ import math
 import argparse
 import logging
 import subprocess
+from use_datasets import load_data
+from prompt.code_prompt import *
 
 logger = logging.getLogger('self_training_logger')
 logger.setLevel(logging.DEBUG)
 
-
+CODE_REFLECT_NUM = 5
 def create_ngram_dict(code, n):
     ngrams = {}
     for i in range(len(code) - n + 1):
@@ -33,7 +35,7 @@ def count_effective_samples(scores):
     num = 0
     for i in range(len(scores)):
         for j in range(5):
-            if scores[i][j]==1:
+            if scores[i][j]>=1:
                 num += 1
                 break
     return num
@@ -45,25 +47,24 @@ def extract_code_blocks(text):
     :return: parsed code form
     """
     text = text.strip()
-    pattern = r"```(.*?)```"
+    pattern = r"\[PYTHON\](.*?)\[PYTHON\]"
     code_blocks = re.findall(pattern, text, re.DOTALL)
     if code_blocks:
-        if code_blocks[0].startswith("python\n"):
-            return "```python\n" + code_blocks[0].split("python\n")[1].strip() + "\n```"
+        if code_blocks[0].startswith("[PYTHON]"):
+            return "[PYTHON]\n" + code_blocks[0].split("[PYTHON]")[1].strip() + "\n[PYTHON]"
         else:
-            return "```python\n" + code_blocks[0] + "\n```"
+            return "[PYTHON]\n" + code_blocks[0].strip() + "\n[PYTHON]"
     else:
-        return "```python\n" + text + "\n```".strip()
+        return "[PYTHON]\n" + text.strip() + "\n[PYTHON]"
 
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="self-training framework combining symbolic solver and llms")
     parser.add_argument(
-        "--domain",
+        "--task_name",
         type=str,
-        default="math",
-        help="The name of the domain [math,agent,logic].",
+        default="mbpp",
     )
     parser.add_argument(
         "--iter_num",
@@ -74,7 +75,7 @@ def parse_args():
     parser.add_argument(
         "--task_prefix",
         type=str,
-        default="gsm_math_full_llama2chat",
+        default="mbpp_full_llama2chat",
         help="The prefix for the dataset name, directory name and save path",
     )
     parser.add_argument(
@@ -86,7 +87,7 @@ def parse_args():
     parser.add_argument(
         "--cur_iter",
         type=int,
-        default=10,
+        default=0,
         help="The index of the current iteration",
     )
 
@@ -100,13 +101,12 @@ def main():
     """
     load original ground-truth data
     """
-    part_num = 3
-    ground_truth = []
-    for i in range(1, part_num+1):
-        part_name = f"part{i}"
-        with open(f"open-instruct/data/gsm_math_full_{part_name}.json", 'r') as file:
-            data = json.load(file)
-        ground_truth += data
+    PART_NUM = 4
+    # ground_truth = []
+    # for i in range(1, PART_NUM+1):
+    #     part_name = f"part{i}"
+    #     data = load_data(args.task_name)
+    #     ground_truth += data
 
 
     response_pool = set()
@@ -116,25 +116,25 @@ def main():
         # [Data Load] read scores for each iteration
         scores, candidates = [], []
         scores_repaired, candidates_repaired = [], []
-        for i in range(1, part_num + 1):
+        for i in range(1, PART_NUM + 1):
             if iter_idx == 0:
                 part_name = f"part{i}"
-                score = np.load(f"score_memory/{args.task_prefix}/scores_{args.task_prefix}_{part_name}_iter{iter_idx}.npy").tolist()
-                with open(f"score_memory/{args.task_prefix}/{args.task_prefix}_{part_name}_iter{iter_idx}.json",'r') as file:
+                score = np.load(f"score_memory/test_agent/{args.task_prefix}/scores_{args.task_prefix}_{part_name}_iter{iter_idx}.npy").tolist()
+                with open(f"score_memory/test_agent/{args.task_prefix}/{args.task_prefix}_{part_name}_iter{iter_idx}.json",'r') as file:
                     data = json.load(file)
                 scores += score
                 candidates += data
             else:
                 part_name = f"part{i}"
-                score = np.load(f"score_memory/{args.task_prefix}/scores_{args.task_prefix}_{part_name}_iter{iter_idx}.npy").tolist()
-                with open(f"new_generated_data/{args.task_prefix}_{part_name}_iter{iter_idx}.json", 'r') as file:
+                score = np.load(f"score_memory/test_agent/{args.task_prefix}/scores_{args.task_prefix}_{part_name}_iter{iter_idx}.npy").tolist()
+                with open(f"new_generated_data/test_agent/{args.task_prefix}_{part_name}_iter{iter_idx}.json", 'r') as file:
                     data = json.load(file)
                 scores += score
                 candidates += data
 
                 # load self-repaired samples
-                score_repaired = np.load(f"score_memory/{args.task_prefix}/scores_{args.task_prefix}_{part_name}_iter{iter_idx}_repaired.npy").tolist()
-                with open(f"new_generated_data/{args.task_prefix}_{part_name}_iter{iter_idx}_repaired.json", 'r') as file:
+                score_repaired = np.load(f"score_memory/test_agent/{args.task_prefix}/scores_{args.task_prefix}_{part_name}_iter{iter_idx}_repaired.npy").tolist()
+                with open(f"new_generated_data/test_agent/{args.task_prefix}_{part_name}_iter{iter_idx}_repaired.json", 'r') as file:
                     data_repaired = json.load(file)
                 scores_repaired += score_repaired
                 candidates_repaired += data_repaired
@@ -146,11 +146,11 @@ def main():
             print(f"orginal effective samples: {count_effective_samples(scores)}")
             effective_samples = count_effective_samples(scores)
             for i in range(len(scores)):
-                for j in range(5):
-                    if scores[i][j] != 1 and scores_repaired[i][j] == 1 or \
-                            (scores[i][j]==1 and scores_repaired[i][j]==1 and candidates[i*5+j]['logprobs']<candidates_repaired[i*5+j]['logprobs']):
-                        scores[i][j] = 1
-                        candidates[i * 5 + j] = candidates_repaired[i * 5 + j]
+                for j in range(CODE_REFLECT_NUM):
+                    if scores[i][j] < scores_repaired[i][j] or \
+                            (scores[i][j] == scores_repaired[i][j] and candidates[i*CODE_REFLECT_NUM+j]['logprobs'] < candidates_repaired[i*CODE_REFLECT_NUM+j]['logprobs']):
+                        scores[i][j] = scores_repaired[i][j]
+                        candidates[i * CODE_REFLECT_NUM + j] = candidates_repaired[i * CODE_REFLECT_NUM + j]
             print(f"orginal effective samples after self-repair: {count_effective_samples(scores)}")
 
 
@@ -168,14 +168,16 @@ def main():
         for i in range(len(scores)):  # for each origin sample, origin id: i
             chosen_candidates_idx_list = []
             rejected_candidates_idx_list = []
-            for j in range(5):  # generate 5 code for each (x,y)
-                response = extract_code_blocks(candidates[i*5+j]['response'])
-                if scores[i][j] == 1 and response not in response_pool and (iter_idx > 2 or ground_truth[i]['input'].strip() in response):
+            for j in range(CODE_REFLECT_NUM):  # generate CODE_REFLECT_NUM code for each (x,y)
+                response = extract_code_blocks(candidates[i * CODE_REFLECT_NUM + j]['response'])
+                # choose_flag = 1 if iter_idx == 0 else 2
+                choose_flag = 2
+                if scores[i][j] >= choose_flag and response not in response_pool:
                 # if scores[i][j] == 1 and response not in response_pool:
-                    chosen_candidates_idx_list.append(i * 5 + j)
+                    chosen_candidates_idx_list.append(i * CODE_REFLECT_NUM + j)
                     response_pool.add(response)
                 elif response not in response_pool:
-                    rejected_candidates_idx_list.append(i * 5 + j)
+                    rejected_candidates_idx_list.append(i * CODE_REFLECT_NUM + j)
                     response_pool.add(response)
 
             # update chosen pool for each sample
@@ -194,11 +196,12 @@ def main():
                 for m in range(min(10, max(1,len(chosen_pool[str(i)])-1))):  # choose at most 10 candidates
                     data_dict = {}
                     data_dict['origin_id'] = str(i)
-                    data_dict['source'] = ground_truth[i]['source']
+                    # data_dict['source'] = ground_truth[i]['source']
                     data_dict['type'] = "self-explore"
-                    data_dict['prompt'] = "Write a Python code to solve the problem.\n" + "\nThe question is:" + \
-                                          ground_truth[i]['input'] + "\nThe solution code is:\n"
+                    data_dict['prompt'] = CODE_INSTRUCTION + "\nProblem:" + \
+                                          chosen_pool[str(i)][m]['question'] + "\nThe solution code is:\n"
                     data_dict['completion'] = extract_code_blocks(chosen_pool[str(i)][m]['response'])
+                    data_dict['test_list'] = chosen_pool[str(i)][m]['test_list']
                     explore_num += 1
                     explored_id_cur.add(str(i))
                     include_id.add(str(i))
@@ -212,13 +215,14 @@ def main():
                 for m in range(repair_num):
                     data_dict = {}
                     data_dict['origin_id'] = str(i)
-                    data_dict['source'] = ground_truth[i]['source']
+                    # data_dict['source'] = ground_truth[i]['source']
                     data_dict['type'] = "self-repair"
-                    data_dict['prompt'] = "You are provided with a Python code to solve the given problem. You can either repair and refine it, or you can simply return the original one.\n" + \
-                                          "\nThe question is:" + ground_truth[i]['input'] + "\nThe current Python code is:\n" + \
+                    data_dict['prompt'] = CODE_REPAIR_INSTRUCTION + \
+                                          "\nProblem:" + rejected_pool[str(i)][m]['question'] + "\nThe current Python code is:\n" + \
                                           extract_code_blocks(rejected_pool[str(i)][m]['response']) + \
-                                          "\nThe solution code is:\n"
+                                          "\nThe repaired code is:\n"
                     data_dict['completion'] = extract_code_blocks(chosen_pool[str(i)][explore_num+m]['response'])
+                    data_dict['test_list'] = chosen_pool[str(i)][explore_num+m]['test_list']
                     repair_id_cur.add(str(i))
                     preference_data_sft.append(data_dict)
 
@@ -229,7 +233,7 @@ def main():
         #     print(f"Current iteration contains: {len(include_id_gsm)} gsm samples, and {len(include_id_math)} math samples, {len(include_id_gsm)/len(include_id_math)}")
         print("-" * 30)
 
-    with open(f"logs/{args.task_prefix}_log.txt","a+") as file:
+    with open(f"logs/{args.task_prefix}_code_log.txt","a+") as file:
         file.write(f"orginal effective samples before self-repair: {effective_samples}\n")
         file.write(f"orginal effective samples after self-repair: {count_effective_samples(scores)}\n")
         file.write(f"The iteration {iter_idx} has: SFT data {len(preference_data_sft)}\n")
@@ -239,7 +243,7 @@ def main():
         file.write("\n")
 
 
-    with jsonlines.open(f"open-instruct/data/{args.task_prefix}_sft_iter{args.cur_iter}.jsonl",'w') as file:
+    with jsonlines.open(f"open-instruct/data/{args.task_prefix}_sft_iter{args.cur_iter}_test_agent.jsonl",'w') as file:
         random.shuffle(preference_data_sft)
         for i in range(len(preference_data_sft)):
             file.write(preference_data_sft[i])

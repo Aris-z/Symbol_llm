@@ -23,6 +23,7 @@ def dequantize_model(model, dtype=torch.bfloat16, device="cuda"):
                 quant_state = copy.deepcopy(module.weight.quant_state)
 
                 quant_state[2] = dtype
+                # quant_state.dtype = dtype
 
                 weights = dequantize_4bit(module.weight.data, quant_state=quant_state, quant_type="nf4").to(dtype)
 

@@ -2,7 +2,7 @@
 # cd symbol-llm-v2/open-instruct
 # echo "[INFO] We have successfully activate the environment."
 # echo "[INFO] Start to run the shell."
-export CUDA_VISIBLE_DEVICES=0,1,2
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 TASK_PREFIX=$1
 ITER_NUM=$2
@@ -10,9 +10,11 @@ BASE_MODEL=$3
 
 
 MODEL_SIZE=$4
+AGENT_TYPE=$5
+
 DS_FILE=/mnt/nas/data/yihan/Code/symbol-llm-v2/open-instruct/ds_configs/stage3_no_offloading_accelerate.conf
-NUM_GPUS=3
-BATCH_SIZE_PER_GPU=1
+NUM_GPUS=4
+BATCH_SIZE_PER_GPU=2
 TOTAL_BATCH_SIZE=128
 GRADIENT_ACC_STEPS=$(($TOTAL_BATCH_SIZE/$NUM_GPUS/$BATCH_SIZE_PER_GPU))
 echo "Training model using $NUM_GPUS GPUs, $BATCH_SIZE_PER_GPU batch size per GPU, $GRADIENT_ACC_STEPS gradient accumulation steps"
@@ -27,24 +29,9 @@ if [ "$BASE_MODEL" = "llama2chat" ] || [ "$ITER_NUM" = "0" ]; then
     MODEL_DIR=/cpfs01/shared/public/public_hdd/llmeval/model_weights/llama2/model_weights_hf/llama-2-13b-chat-hf
     DS_FILE=ds_configs/stage3_offloading_accelerate.conf
   fi
-elif [ "$BASE_MODEL" = "cont" ]; then
+elif [ "$BASE_MODEL" = "continue" ]; then
   PREV_ITER_NUM=$((ITER_NUM - 1))
   MODEL_DIR=/cpfs01/user/xufangzhi/symbol-llm-v2/open-instruct/output/${TASK_PREFIX}_sft_iter${PREV_ITER_NUM}_sft_tune_${BASE_MODEL}_${MODEL_SIZE}
-fi
-
-
-if [ "$BASE_MODEL" = "llemma" ]; then
-  MODEL_DIR=/cpfs01/shared/public/public_hdd/llmeval/model_weights/hf_hub/models--EleutherAI--llemma_7b/snapshots/e223eee41c53449e6ea6548c9b71c50865e4a85c
-  MODEL_SIZE=7B
-fi
-
-
-
-if [ "$BASE_MODEL" = "deepseekchat" ]; then
-  if [ "$MODEL_SIZE" = "7B" ]; then
-    MODEL_DIR=/cpfs01/shared/public/public_hdd/llmeval/model_weights/hf_hub/models--deepseek-ai--deepseek-llm-7b-chat/snapshots/afbda8b347ec881666061fa67447046fc5164ec8
-    MODEL_SIZE=7B
-  fi
 fi
 
 
@@ -62,7 +49,7 @@ accelerate launch \
     --use_flash_attn \
     --tokenizer_name ${MODEL_DIR} \
     --use_slow_tokenizer \
-    --train_file /mnt/nas/data/yihan/Code/symbol-llm-v2/open-instruct/data/${TASK_PREFIX}_sft_iter${ITER_NUM}.jsonl \
+    --train_file open-instruct/data/${TASK_PREFIX}_sft_iter${ITER_NUM}_${AGENT_TYPE}_agent.jsonl \
     --max_seq_length 2048 \
     --preprocessing_num_workers 32 \
     --per_device_train_batch_size $BATCH_SIZE_PER_GPU \
@@ -72,7 +59,7 @@ accelerate launch \
     --warmup_ratio 0.03 \
     --weight_decay 0. \
     --num_train_epochs 1 \
-    --output_dir ./output/${TASK_PREFIX}_sft_iter${ITER_NUM}_sft_tune_${BASE_MODEL}_${MODEL_SIZE} \
+    --output_dir ./output/${AGENT_TYPE}_agent/${TASK_PREFIX}_sft_iter${ITER_NUM}_sft_tune_${BASE_MODEL}_${MODEL_SIZE} \
     --with_tracking \
     --report_to tensorboard \
     --logging_steps 1
