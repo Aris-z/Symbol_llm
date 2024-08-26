@@ -75,31 +75,51 @@ import re
 # code = re.search(r"\[PYTHON\](.*?)\[/PYTHON\]", x, re.DOTALL).group(1)
 # print(code)
 
-import os
+# import os
+# import numpy as np
+
+# # with open("/mnt/nas/data/yihan/Code/symbol-llm-v2/score_memory/code_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part1_iter0.npy", "r") as f:
+# # data = np.load("/mnt/nas/data/yihan/Code/symbol-llm-v2/score_memory/code_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part1_iter0.npy")
+# # print(data)
+# from use_datasets import load_data
+# from prompt import code_prompt
+# import jsonlines
+# import random
+
+# # npy pass@1 and pass@5
+# # data pass@1 and pass@5
+# # train_data pass@1 and pass@5
+# data = []
+# for i in range(1, 5):
+#     data += np.load(f"score_memory/validation_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part{i}_iter0.npy").tolist()
+
+# acc_pass1 = []
+# acc_pass5 = []
+# for i in range(len(data)):
+#     pass5_flag = False
+#     for j in range(5):
+#         pass5_flag = pass5_flag or data[i][j] == 2
+#         acc_pass1.append(data[i][j] == 2)
+#     acc_pass5.append(pass5_flag)
+# print(f"pass@1: {sum(acc_pass1)/len(acc_pass1)}")
+# print(f"pass@5: {sum(acc_pass5)/len(acc_pass5)}")
+# import re
+# import os
+# import json
+
+# with open(f"logs/youxiao_unit_test_wrong_validation_right_log.json", "r") as f:
+#     data = json.load(f)
+
+# for i in range(len(data)):
+#     if not re.search(r'assert\s\w*\(.*\)\s*==\s*.*', data[i]['unit_test']):
+#         print(data[i]['unit_test'])
+
 import numpy as np
 
-# with open("/mnt/nas/data/yihan/Code/symbol-llm-v2/score_memory/code_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part1_iter0.npy", "r") as f:
-# data = np.load("/mnt/nas/data/yihan/Code/symbol-llm-v2/score_memory/code_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part1_iter0.npy")
-# print(data)
-from use_datasets import load_data
-from prompt import code_prompt
-import jsonlines
-import random
-
-# npy pass@1 and pass@5
-# data pass@1 and pass@5
-# train_data pass@1 and pass@5
-data = []
-for i in range(1, 5):
-    data += np.load(f"score_memory/validation_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part{i}_iter0.npy").tolist()
-
-acc_pass1 = []
-acc_pass5 = []
-for i in range(len(data)):
-    pass5_flag = False
-    for j in range(5):
-        pass5_flag = pass5_flag or data[i][j] == 2
-        acc_pass1.append(data[i][j] == 2)
-    acc_pass5.append(pass5_flag)
-print(f"pass@1: {sum(acc_pass1)/len(acc_pass1)}")
-print(f"pass@5: {sum(acc_pass5)/len(acc_pass5)}")
+score = np.load(f"score_memory/validation_agent/mbpp_full_llama2chat/scores_mbpp_full_llama2chat_part1_iter0.npy")
+acc = 0
+for i in range(len(score)):
+    for j in range(len(score[i])):
+        if score[i][j] == 2:
+            acc += 1
+print(acc)

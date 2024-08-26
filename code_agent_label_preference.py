@@ -355,6 +355,7 @@ def label_preference(part, args):
     id = data_code[0]['id']
     scores_code = []
     score_code = []
+    log_validation_unit_test = []
     for i in range(len(data_code)):
         if data_code[i]["id"] != id:
             id = data_code[i]["id"]
@@ -365,18 +366,69 @@ def label_preference(part, args):
             continue
         code_str_1 = data_code[i]['response']
         flag_1 = exc_code(code_str_1, validation="code")
-        flag_2_acc = 0
+        ######## flag_2
         # 验证label unit test和validation generate unit test准确性
         # 验证unit test 和 validation 结果的差异性输出一次log
+        flag_2_acc = []
         for j in range(VALI_REFLECT_NUM):
-            code_str_2 = [data_code[i]["response"], data_validation[i * VALI_REFLECT_NUM + j]["response"]]
-            if exc_code(code_str_2, validation="validation"):
-                flag_2_acc += 1
-        if flag_2_acc / VALI_REFLECT_NUM >= 0.8:
-            flag_2 = True
+            # 验证unit test准确性
+            try:
+                code_target_str = data_code[i]["target"] + "\n" + parse_code_block(data_validation[i * VALI_REFLECT_NUM + j]["response"])
+            except:
+                continue
+            if exc_code(code_target_str, validation="evaluation"): # 有效的unit test
+                # 测试
+                if int(args.cur_iter) == 2 and len(log_validation_unit_test) <= 20:
+                    try:
+                        test_code_1 = [data_code[i]["response"], data_validation[i * VALI_REFLECT_NUM + j]["response"]]
+                        test_code_2 = parse_code_block(data_code[i]["response"]) + '\n' + "\n".join(data_code[i]["test_list"])
+                        f1 = exc_code(test_code_1, validation='validation')
+                        f2 = exc_code(test_code_2, validation='evaluation')
+
+                        if f1 and not f2:
+                            log_validation_unit_test.append(                                
+                                {
+                                    "question": data_code[i]["question"],
+                                    "code": data_code[i]["response"],
+                                    "test_list": data_code[i]["test_list"],
+                                    "unit_test": data_validation[i * VALI_REFLECT_NUM + j]["response"],
+                                    "target": data_code[i]["target"],
+                                    "ground_truth": False,
+                                }
+                                )   
+                        elif not f1 and f2:
+                            log_validation_unit_test.append(
+                                {
+                                    "question": data_code[i]["question"],
+                                    "code": data_code[i]["response"],
+                                    "test_list": data_code[i]["test_list"],
+                                    "unit_test": data_validation[i * VALI_REFLECT_NUM + j]["response"],
+                                    "target": data_code[i]["target"],
+                                    "ground_truth": True,
+                                }
+                                )
+
+                    except:
+                        pass
+
+                code_str_2 = [data_code[i]["response"], data_validation[i * VALI_REFLECT_NUM + j]["response"]]
+                if exc_code(code_str_2, validation="validation"):
+                    flag_2_acc.append(1)
+                else:
+                    flag_2_acc.append(0)
+
+        if not flag_2_acc: # none of unit test is valid
+            try:
+                code_unit_test_str = parse_code_block(data_code[i]["response"]) + "\n" + "\n".join(data_code[i]["test_list"])
+                flag_2 =  exc_code(code_unit_test_str, validation="evaluation")
+            except:
+                flag_2 = False
         else:
-            flag_2 = False
-        
+            if sum(flag_2_acc)/len(flag_2_acc) >= 1:
+                flag_2 = True
+            else:
+                flag_2 = False
+        ########
         if flag_1 and flag_2:
             score_code.append(2)
         elif flag_1 and not flag_2:
@@ -385,6 +437,9 @@ def label_preference(part, args):
             score_code.append(0)
     scores_code.append(score_code)
     scores_code = np.array(scores_code)
+    if int(args.cur_iter) == 2 and len(log_validation_unit_test) != 0:
+        with open("logs/youxiao_unit_test_wrong_validation_right_log_0805.json", "w+") as f:
+            json.dump(log_validation_unit_test, f, indent=4)
     if args.few_shot:
         np.save(f'score_memory/code_agent/{args.task_prefix}/scores_{args.task_prefix}_part{part+1}_iter{args.cur_iter}.npy', scores_code)
     else:

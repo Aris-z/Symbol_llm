@@ -80,7 +80,7 @@ def main():
     args = parse_args()
 
     if args.few_shot and args.base_model=="llama2chat":
-        PATH_TO_CONVERTED_WEIGHTS = f"/mnt/nas/data/yihan/Code/share_model/Llama-2-7b-chat-hf"
+        PATH_TO_CONVERTED_WEIGHTS = f"/mnt/nas/data/yihan/Code/share_model/CodeLlama-7b-Instruct-hf"
         PATH_TO_CODE_DATA = "/mnt/nas/data/yihan/Code/symbol-llm-v2/score_memory/code_agent/mbpp_full_llama2chat"
     else:
         PATH_TO_CONVERTED_WEIGHTS=f"/mnt/nas/data/yihan/Code/symbol-llm-v2/output/validation_agent/{args.task_prefix}_sft_iter{args.cur_iter}_sft_tune_{args.base_model}_{args.model_size}_merged/"
@@ -118,13 +118,14 @@ def main():
             try:
                 solution_code = parse_code_block(data_test_solution[i]["response"])
             except:
-                result += [empty_dict for _ in range(VALI_REFLECT_NUM)]
-                continue
+                # result += [empty_dict for _ in range(VALI_REFLECT_NUM)]
+                # continue
+                solution_code = data_test_solution[i]['target']
             if args.few_shot:
-                prompts = [code_prompt.VALI_INSTRUCTION + "\n" + code_prompt.VALI_PROMPT_FS + "\nProblem:\n" + data_test_solution[j]['question'] + "\nTest:\n" + data_test_solution[j]['test_list'][0]
+                prompts = [code_prompt.VALI_INSTRUCTION + "\n" + code_prompt.VALI_PROMPT_FS + "\nProblem:\n" + data_test_solution[j]['question'] + "\nTest:\n" + "\n".join(data_test_solution[j]["test_list"])
                             + "\nSolution:\n" + solution_code + "\nThe unit test is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test_solution)))]
             else:
-                prompts = [code_prompt.VALI_INSTRUCTION + "\nProblem:\n" + data_test_solution[j]['question'] + "\nTest:\n" + data_test_solution[j]['test_list'][0]
+                prompts = [code_prompt.VALI_INSTRUCTION + "\nProblem:\n" + data_test_solution[j]['question'] + "\n".join(data_test_solution[j]["test_list"])
                             + "\nSolution:\n" + solution_code + "\nThe unit test is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test_solution)))]
 
             try:
@@ -150,7 +151,7 @@ def main():
                         result_dict['solution_code'] = solution_code
                         result_dict['response'] = response_text
                         result_dict['target'] = data_test_solution[i]['target']
-                        result_dict['logprobs'] = response.cumulative_logprob / (len(response.token_ids)+1e-8)
+                        result_dict['logprobs'] = response.cumulative_logprob / (len(response.token_ids) + 1e-8)
                         result_dict['test_list'] = data_test_solution[i]['test_list']
                         result.append(result_dict)
                         # print(response)

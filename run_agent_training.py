@@ -23,10 +23,10 @@ def run_command(command):
 
 # Execute commands in order
 flag = False
-for iter_num in range(1,6):
+for iter_num in range(9, 10):
     for cmd in commands:
-        #if iter_num == 5 and (cmd == commands[0] or cmd == commands[1] or cmd == commands[2]):
-        #   continue
+        if iter_num == 1 and (cmd != commands[4] and cmd != commands[5]):
+            continue
         print(cmd.format(iter_num=iter_num))
         if not run_command(cmd.format(iter_num=iter_num)):
             print("Stopping script due to error.")

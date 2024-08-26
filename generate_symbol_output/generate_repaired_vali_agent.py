@@ -112,7 +112,7 @@ def main():
             # prompts = [prompt]
             # instruction = "Repair the provided Python code to solve the given problem."
             instruction = "You are provided with an unit test code to validate a code for given problem. You can either repair and refine this unit test, or simply return the original solution. Just output the code directly. DO NOT add additional explanations or introducement in the answer unless you are asked to.\n"
-            prompts = [code_prompt.VALI_REPAIR_INSTRUCTION + "\nProblem:\n" + prompt + "\n\Test:n" + data_before[i*VALI_REFLECT_NUM+j]["test_list"][0]\
+            prompts = [code_prompt.VALI_REPAIR_INSTRUCTION + "\nProblem:\n" + prompt + "\nTest:\n" + "\n".join(data_before[i*VALI_REFLECT_NUM+j]["test_list"])\
                         + "\nThe current solution is:\n" + extract_code_blocks(data_before[i*VALI_REFLECT_NUM+j]['solution_code']) \
                         + "\nThe current unit test code is:\n" + data_before[i*VALI_REFLECT_NUM+j]["response"]
                         + "\nThe repaired unit test code is:\n" for j in range(VALI_REFLECT_NUM)]
@@ -160,7 +160,7 @@ def main():
         if not os.path.exists(test_result_folder):
             os.system(f"mkdir -p {test_result_folder}")
         # with open(f"{test_result_folder}/gsm_math_full_13b_{part}_iter0.json",'w') as file:
-        with open(f"{test_result_folder}/{args.task_prefix}_{part}_iter{args.cur_iter+1}_repaired.json", 'w') as file:
+        with open(f"{test_result_folder}/{args.task_prefix}_{part}_iter{args.cur_iter + 1}_repaired.json", 'w') as file:
         # with open(f"{test_result_folder}/theoremqa_v2_iter2_repaired.json", 'w') as file:
             json.dump(result, file, indent=4)
 

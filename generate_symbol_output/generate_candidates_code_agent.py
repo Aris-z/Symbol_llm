@@ -95,10 +95,10 @@ def main():
 
             if args.few_shot:
                 prompts = [code_prompt.CODE_INSTRUCTION + "\n" + code_prompt.CODE_PROMPT_FS + "\nProblem:\n" + data_test[j]['input']
-                            + "\nTest:\n" + data_test[j]["test_list"][0] + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
+                            + "\nTest:\n" + "\n".join(data_test[j]["test_list"]) + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
             else:
                 prompts = [code_prompt.CODE_INSTRUCTION + "\n" + code_prompt.CODE_PROMPT_FS + "\nProblem:\n" + data_test[j]['input']
-                            + "\nTest:\n" + data_test[j]["test_list"][0] + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
+                            + "\nTest:\n" + "\n".join(data_test[j]["test_list"]) + "\nThe solution code is:\n" for j in range(i,min(i+args.vllm_batchsize, len(data_test)))]
 
             try:
                 # print(prompts)

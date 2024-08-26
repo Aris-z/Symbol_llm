@@ -21,11 +21,10 @@ echo "$BASE_MODEL"
 echo "$ITER_NUM"
 
 if [ "$BASE_MODEL" = "llama2chat" ] || [ "$ITER_NUM" = "0" ]; then
-  if [ "$MODEL_SIZE" = "7B" ]; then
+  if [ "$AGENT_TYPE" = "code" ]; then
     MODEL_DIR=/mnt/nas/data/yihan/Code/share_model/Llama-2-7b-chat-hf/
-  elif [ "$MODEL_SIZE" = "13B" ]; then
-    MODEL_DIR=/cpfs01/shared/public/public_hdd/llmeval/model_weights/llama2/model_weights_hf/llama-2-13b-chat-hf
-    DS_FILE=ds_configs/stage3_offloading_accelerate.conf
+  elif [ "$AGENT_TYPE" = "validation" ]; then
+    MODEL_DIR=/mnt/nas/data/yihan/Code/share_model/CodeLlama-7b-Instruct-hf
   fi
 elif [ "$BASE_MODEL" = "continue" ]; then
   PREV_ITER_NUM=$((ITER_NUM - 1))

@@ -1,12 +1,13 @@
 CODE_INSTRUCTION = """
 Your task is to write a Python function to solve a programming problem.
 The Python code must be between [PYTHON] and [PYTHON] tags.
-You are given one example unit test from which you can infer the function signature and output.
+You are given example unit tests from which you can infer the function signature and output.
 """
 
 CODE_REPAIR_INSTRUCTION = """
 You are provided with a code for given problem. You can either repair and refine this code, or simply return the original solution. 
 The output Python code must be between [PYTHON] and [PYTHON] tags.
+You are given example unit tests from which you can infer the function signature and output.
 Just output the code directly.
 """
 
@@ -20,6 +21,8 @@ Problem:
 Write a python function to find the last digit when factorial of a divides factorial of b.
 Test: 
 assert compute_Last_Digit(2,4) == 2
+assert compute_Last_Digit(6,8) == 6
+assert compute_Last_Digit(1,2) == 2
 The solution code is:
 [PYTHON]
 def compute_Last_Digit(A,B):
@@ -38,7 +41,9 @@ Example 2:
 Problem:
 Write a function to split a string at lowercase letters.
 Test: 
+assert split_lowerstring(\"Programming\")==['r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g']
 assert split_lowerstring(\"AbCd\")==['bC','d']
+assert split_lowerstring(\"Python\")==['y', 't', 'h', 'o', 'n']
 The solution code is:
 [PYTHON]
 import re
@@ -51,7 +56,9 @@ def split_lowerstring(text):
 
 VALI_INSTRUCTION = """
 # Role
-You are a Python unit testing expert who is good at writing concise unit test cases to verify the correctness and robustness of the code based on the given solution code. You pay attention to the coverage and efficiency of the test, and ensure that the test focuses on discovering potential errors.
+You are a Python unit testing expert who is good at writing concise unit test cases to verify the correctness and robustness of the code based on the given solution code. 
+You pay attention to the coverage and efficiency of the test, and ensure that the test focuses on discovering potential errors.
+Each problem will get some example tests from which the right function signature can be inferred.
 
 ## Skills
 ### Skill 1: Understand the code logic
@@ -82,7 +89,7 @@ VALI_REPAIR_INSTRUCTION = \
 """
 You are provided with an unit test code to validate the given solution code. You can either repair and refine this unit test code, or simply return the original solution. 
 The unit test code must be between [PYTHON] and [PYTHON] tags, and it should include only assert statements.
-You can get one example test from which you can infer the right function signature.
+Each problem will get some example tests from which the right function signature can be inferred.
 Just output the code directly.
 """
 
@@ -92,7 +99,9 @@ The following are two examples for reference.
 Example 1:
 Problem:
 Write a python function to find the last digit when factorial of a divides factorial of b.
-Test:
+Example tests:
+assert compute_Last_Digit(2,4) == 2
+assert compute_Last_Digit(6,8) == 6
 assert compute_Last_Digit(1,2) == 2
 Solution:
 def compute_Last_Digit(A,B):
@@ -107,15 +116,17 @@ def compute_Last_Digit(A,B):
         return variable % 10
 The unit test is:
 [PYTHON]
-assert compute_Last_Digit(2,4) == 2
-assert compute_Last_Digit(6,8) == 6
+assert compute_Last_Digit(2,8) == 0
+assert compute_Last_Digit(8,8) == 1
 [PYTHON]
 
 
 Example 2:
 Problem:
 Write a function to split a string at lowercase letters.
-Test:
+Example tests:
+assert split_lowerstring(\"Programming\")==['r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g']
+assert split_lowerstring(\"AbCd\")==['bC','d']
 assert split_lowerstring(\"Python\")==['y', 't', 'h', 'o', 'n']
 Solution:
 import re
@@ -123,7 +134,8 @@ def split_lowerstring(text):
     return(re.findall('[a-z][^a-z]*', text))
 The unit test is:
 [PYTHON]
-assert split_lowerstring(\"Programming\")==['r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g']
-assert split_lowerstring(\"AbCd\")==['bC','d']
+assert split_lowerstring(\"heLLo\")==['h', 'eLL', 'o']
+assert split_lowerstring(\"AaaBcDDD\")==['a', 'aB', 'cDDD']
+assert split_lowerstring(\"SSS\")==[]
 [PYTHON]
 """.strip() + '\n'

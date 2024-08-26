@@ -199,7 +199,7 @@ def main():
                     # data_dict['source'] = ground_truth[i]['source']
                     data_dict['type'] = "self-explore"
                     data_dict['prompt'] = CODE_INSTRUCTION + "\nProblem:" + \
-                            chosen_pool[str(i)][m]['question'] + "\nTest:\n" + chosen_pool[str(i)][m]['test_list'][0] + "\nThe solution code is:\n"
+                            chosen_pool[str(i)][m]['question'] + "\nTest:\n" + "\n".join(chosen_pool[str(i)][m]['test_list']) + "\nThe solution code is:\n"
                     data_dict['completion'] = extract_code_blocks(chosen_pool[str(i)][m]['response'])
                     data_dict['test_list'] = chosen_pool[str(i)][m]['test_list']
                     explore_num += 1
@@ -218,7 +218,7 @@ def main():
                     # data_dict['source'] = ground_truth[i]['source']
                     data_dict['type'] = "self-repair"
                     data_dict['prompt'] = CODE_REPAIR_INSTRUCTION + \
-                                          "\nProblem:" + rejected_pool[str(i)][m]['question'] + "\nTest:\n" + rejected_pool[str(i)][m]['test_list'][0] + "\nThe current Python code is:\n" + \
+                                          "\nProblem:" + rejected_pool[str(i)][m]['question'] + "\nTest:\n" + "\n".join(rejected_pool[str(i)][m]['test_list']) + "\nThe current Python code is:\n" + \
                                           extract_code_blocks(rejected_pool[str(i)][m]['response']) + \
                                           "\nThe repaired code is:\n"
                     data_dict['completion'] = extract_code_blocks(chosen_pool[str(i)][explore_num+m]['response'])

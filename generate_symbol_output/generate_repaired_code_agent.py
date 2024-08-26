@@ -103,11 +103,12 @@ def main():
                     "logprobs": -99999
                 }
             prompt = data_before[i*CODE_REFLECT_NUM]['question']
+            test_list = data_before[i*CODE_REFLECT_NUM]['test_list']
             sampling_params = SamplingParams(max_tokens=4096,n=1)
             # prompts = [prompt]
             # instruction = "Repair the provided Python code to solve the given problem."
             instruction = "You are provided with a code for given problem. You can either repair and refine this code, or simply return the original solution. Just output the code directly. DO NOT add additional explanations or introducement in the answer unless you are asked to.\n"
-            prompts = [code_prompt.CODE_REPAIR_INSTRUCTION + "\nProblem:\n" + prompt\
+            prompts = [code_prompt.CODE_REPAIR_INSTRUCTION + "\nProblem:\n" + prompt + "\nTest:\n" + "\n".join(test_list) \
                         + "\nThe current Python code is:\n" + extract_code_blocks(data_before[i*CODE_REFLECT_NUM+j]['response']) \
                         + "\nThe repaired code is:\n" for j in range(CODE_REFLECT_NUM)]
             try:

@@ -315,13 +315,15 @@ class WriteOnlyStringIO(io.StringIO):
         """ Returns True if the IO object can be read. """
         return False
 
-def exc_code(code: str, validation: bool=False):
+def exc_code(code, validation):
     sample = {}
     try:
         if validation == "validation":
             sample["test_code"] = parse_code_block(code[0]) + "\n" + parse_code_block(code[1]) + "\n"
         elif validation == "golden":
             sample["test_code"] = code[0]+ "\n" + parse_code_block(code[1])
+        elif validation == "code":
+            sample["test_code"] = code
     except ValueError:
         return False
     args_ = ("0", sample, )
@@ -347,6 +349,7 @@ def label_preference(part, args):
     id = data_validation[0]['code_id']
     scores_validation = []
     score_validation = []
+    logs_validation_score2 = []
     for i in range(len(data_validation)):
         if data_validation[i]["code_id"] != id:
             id = data_validation[i]["code_id"]
@@ -355,13 +358,21 @@ def label_preference(part, args):
         if data_validation[i]['validation_id'] == -1:
             score_validation.append(-999)
             continue
+        code_str_0 = data_validation[i]["solution_code"]
+        flag_0 = exc_code(code_str_0, validation="code")
+        if not flag_0:
+            score_validation.append(-999)
+            continue
+
         code_str_1 = [data_validation[i]["solution_code"], data_validation[i]["response"]]
-        flag_1 = exc_code(code_str_1, validation="validation")
+        flag_1 = exc_code(code_str_1, validation="golden")
         
         code_str_2 = [data_validation[i]["target"], data_validation[i]["response"]]
         flag_2 = exc_code(code_str_2, validation="golden")
 
         if not flag_1 and flag_2:
+            if int(args.cur_iter) == 2 and not args.repaired and len(logs_validation_score2) < 20:
+                logs_validation_score2.append(data_validation[i])
             score_validation.append(2)
         elif flag_1 and flag_2:
             score_validation.append(1)
@@ -369,6 +380,10 @@ def label_preference(part, args):
             score_validation.append(0)
     scores_validation.append(score_validation)
     scores_validation = np.array(scores_validation)
+
+    if int(args.cur_iter) == 2 and not args.repaired and logs_validation_score2:
+        with open(f"logs/validation_score_equal_2_data_part_{part}_0805.json", "w") as f:
+            json.dump(logs_validation_score2, f, indent=4)
     if args.few_shot:
         np.save(f'score_memory/validation_agent/{args.task_prefix}/scores_{args.task_prefix}_part{part+1}_iter{args.cur_iter}.npy', scores_validation)
     else:

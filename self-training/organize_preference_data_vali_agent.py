@@ -172,8 +172,8 @@ def main():
                 for j in range(VALI_REFLECT_NUM):  # generate VALI_REFLECT_NUM code for each (x,y)
                     response = extract_code_blocks(candidates[i * VALI_REFLECT_NUM+j]['response'])
                     # choose_flag = 1 if iter_idx == 0 else 2
-                    choose_flag = 1
-                    if scores[i][j] >= choose_flag and response not in response_pool and ("assert " in response and "def " not in response):
+                    choose_flag = 2
+                    if scores[i][j] >= choose_flag and response not in response_pool and (re.search(r'assert\s\w*\(.*\)\s*==\s*.*', response) and "def " not in response):
                     # if scores[i][j] == 1 and response not in response_pool:
                         chosen_candidates_idx_list.append(i * VALI_REFLECT_NUM + j)
                         response_pool.add(response)
