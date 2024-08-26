@@ -1,0 +1,254 @@
+[
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, ele in sorted(arr): \n        if ele == target: \n            return i\n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nimport random\n[PYTHON]\nassert find_first_occurrence([11, 23, 35, 49, 57, 64, 67, 75, 89, 100], 57) == 4\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to rotate a given list by specified number of items to the right direction.",
+        "code": "[PYTHON]\ndef rotate_right(my_list, direction, midpoint): \n    for i,j in zip(range(len(my_list)),range(midpoint,len(my_list))): \n        if i < midpoint: \n            my_list[i+direction] = my_list[i]\n        elif i >= midpoint: \n            my_list[i+direction] = my_list[j]\n        else: \n            my_list[i+direction] = 0 \n    return my_list\n[PYTHON]",
+        "test_list": [
+            "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],3,4)==[8, 9, 10, 1, 2, 3, 4, 5, 6]",
+            "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2,2)==[9, 10, 1, 2, 3, 4, 5, 6, 7, 8]",
+            "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],5,2)==[6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8]"
+        ],
+        "unit_test": "[PYTHON]\nassert rotate_right([1,2,3,4,5,6,7,8,9,10],0,0)==[1,2,3,4,5,6,7,8,9,10]\n[PYTHON]",
+        "target": "def rotate_right(list1,m,n):\r\n  result =  list1[-(m):]+list1[:-(n)]\r\n  return result",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to check if the given tuple has any none value or not.",
+        "code": "[PYTHON]\ndef check_none(t): \n    for item in t: \n        if item is None: \n            return True\n[PYTHON]",
+        "test_list": [
+            "assert check_none((10, 4, 5, 6, None)) == True",
+            "assert check_none((7, 8, 9, 11, 14)) == False",
+            "assert check_none((1, 2, 3, 4, None)) == True"
+        ],
+        "unit_test": "[PYTHON]\nassert check_none((1, 2, 3, 4, None)) == True\nassert check_none((7, 8, None, 10, 11)) == True\nassert check_none((17, 3, 4, None, 6)) == True\n[PYTHON]",
+        "target": "def check_none(test_tup):\r\n  res = any(map(lambda ele: ele is None, test_tup))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to find minimum k records from tuple list.",
+        "code": "[PYTHON]\ndef min_k(A, k): \n    A = sorted(A,key=lambda x: x[1])\n    if k >= len(A):\n        return []\n    return A[:k]\n[PYTHON]",
+        "test_list": [
+            "assert min_k([('Manjeet', 10), ('Akshat', 4), ('Akash', 2), ('Nikhil', 8)], 2) == [('Akash', 2), ('Akshat', 4)]",
+            "assert min_k([('Sanjeev', 11), ('Angat', 5), ('Akash', 3), ('Nepin', 9)], 3) == [('Akash', 3), ('Angat', 5), ('Nepin', 9)]",
+            "assert min_k([('tanmay', 14), ('Amer', 11), ('Ayesha', 9), ('SKD', 16)], 1) == [('Ayesha', 9)]"
+        ],
+        "unit_test": "[PYTHON]\nassert min_k([('Manjeet', 10), ('Akshat', 4), ('Akash', 2), ('Nikhil', 8)], 2) == [('Akash', 2), ('Akshat', 4)]\nassert min_k([('Akshat', 4), ('Akash', 2)], 2) == [('Akash', 2), ('Akshat', 4)]\nassert min_k([('tanmay', 14), ('Amer', 11), ('Ayesha', 9), ('SKD', 16)], 1) == [('Ayesha', 9)]\n[PYTHON]",
+        "target": "def min_k(test_list, K):\r\n  res = sorted(test_list, key = lambda x: x[1])[:K]\r\n  return (res) ",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to check a decimal with a precision of 2.",
+        "code": "[PYTHON]\ndef is_decimal(text): \n        value = float(text)\n        if text.count('.') > 1:\n            value = round(value, 2)\n        else:\n            value = float(text)\n        return(True if value == round(value, 2) else False)\n[PYTHON]",
+        "test_list": [
+            "assert is_decimal('123.11')==True",
+            "assert is_decimal('e666.86')==False",
+            "assert is_decimal('3.124587')==False"
+        ],
+        "unit_test": "[PYTHON]\nassert is_decimal('100')==True\n[PYTHON]",
+        "target": "def is_decimal(num):\r\n    import re\r\n    dnumre = re.compile(r\"\"\"^[0-9]+(\\.[0-9]{1,2})?$\"\"\")\r\n    result = dnumre.search(num)\r\n    return bool(result)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check for odd parity of a given number.",
+        "code": "[PYTHON]\ndef check_Odd_Parity(X): \n    if X%2 == 0:\n        return False\n    else:\n        return True\n[PYTHON]",
+        "test_list": [
+            "assert check_Odd_Parity(13) == True",
+            "assert check_Odd_Parity(21) == True",
+            "assert check_Odd_Parity(18) == False"
+        ],
+        "unit_test": "[PYTHON]\nassert check_Odd_Parity(11) == True\nassert check_Odd_Parity(9) == False\n[PYTHON]",
+        "target": "def check_Odd_Parity(x): \r\n    parity = 0\r\n    while (x != 0): \r\n        x = x & (x - 1) \r\n        parity += 1\r\n    if (parity % 2 == 1): \r\n        return True\r\n    else: \r\n        return False",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a python function to check for odd parity of a given number.",
+        "code": "[PYTHON]\ndef check_Odd_Parity(i): \n    if(i % 2):\n        return True\n    else:\n        return False\n    return (i % 2)\n[PYTHON]",
+        "test_list": [
+            "assert check_Odd_Parity(13) == True",
+            "assert check_Odd_Parity(21) == True",
+            "assert check_Odd_Parity(18) == False"
+        ],
+        "unit_test": "[PYTHON]\nassert check_Odd_Parity(13) == True\nassert check_Odd_Parity(15) == False\n[PYTHON]",
+        "target": "def check_Odd_Parity(x): \r\n    parity = 0\r\n    while (x != 0): \r\n        x = x & (x - 1) \r\n        parity += 1\r\n    if (parity % 2 == 1): \r\n        return True\r\n    else: \r\n        return False",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a python function to get the difference between two lists.",
+        "code": "[PYTHON]\ndef Diff(fa,fb):  \n    return([x for x in fa if x not in fb]) + [x for x in fb if x not in fa] \n[PYTHON]",
+        "test_list": [
+            "assert (Diff([10, 15, 20, 25, 30, 35, 40], [25, 40, 35])) == [10, 20, 30, 15]",
+            "assert (Diff([1,2,3,4,5], [6,7,1])) == [2,3,4,5,6,7]",
+            "assert (Diff([1,2,3], [6,7,1])) == [2,3,6,7]"
+        ],
+        "unit_test": "[PYTHON]\nassert (Diff([1, 2, 3],[6, 7, 1]) == [2, 3, 6, 7])\nassert (Diff([1,2,3,4,5],[6,7,1]) == [2,3,4,5,6,7])\nassert (Diff([1, 2, 3],[6, 7, 1]) == [2, 3, 6, 7])\n[PYTHON]",
+        "target": "def Diff(li1,li2):\r\n    return (list(list(set(li1)-set(li2)) + list(set(li2)-set(li1))))\r\n ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to remove all the words with k length in the given string.",
+        "code": "[PYTHON]\ndef remove_length(text, k): \n    words = text.split()\n    filtered_words = [word for word in words if len(word) > k]\n    return ' '.join(filtered_words)\n[PYTHON]",
+        "test_list": [
+            "assert remove_length('The person is most value tet', 3) == 'person is most value'",
+            "assert remove_length('If you told me about this ok', 4) == 'If you me about ok'",
+            "assert remove_length('Forces of darkeness is come into the play', 4) == 'Forces of darkeness is the'"
+        ],
+        "unit_test": "[PYTHON]\nassert remove_length('program', 3) == 'program'\nassert remove_length('apple', 2) == 'apple'\nassert remove_length('banana', 3) == 'banana'\n[PYTHON]",
+        "target": "def remove_length(test_str, K):\r\n  temp = test_str.split()\r\n  res = [ele for ele in temp if len(ele) != K]\r\n  res = ' '.join(res)\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to check if the string is a valid email address or not using regex.",
+        "code": "[PYTHON]\nimport re\ndef check_email(address): \n        pattern = r\"^[a-zA-Z0-9_]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\"\n        match = re.search(pattern, address)\n        if match:\n            return \"Valid Email\"\n        else:\n            return(\"Invalid Email\");\n[PYTHON]",
+        "test_list": [
+            "assert check_email(\"ankitrai326@gmail.com\") == 'Valid Email'",
+            "assert check_email(\"my.ownsite@ourearth.org\") == 'Valid Email'",
+            "assert check_email(\"ankitaoie326.com\") == 'Invalid Email'"
+        ],
+        "unit_test": "[PYTHON]\nassert check_email(\"ankitrai326.com\") == \"Invalid Email\"\nassert check_email(\"myserver@ncsu.edu\") == \"Valid Email\"\n[PYTHON]",
+        "target": "import re \r\nregex = '^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$'\r\ndef check_email(email): \r\n\tif(re.search(regex,email)): \r\n\t\treturn (\"Valid Email\") \r\n\telse: \r\n\t\treturn (\"Invalid Email\") ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function that matches a string that has an a followed by three 'b'.",
+        "code": "[PYTHON]\ndef text_match_three(text): \n    text = text.lower()\n    # check for the presence of the character 'a' at the first place after 'b'\n    # as text.find('b') will return the index of the first 'b' in the text\n    if(text.find('b')>0 and text.find('a',text.find('b'))==0):\n        # check if the following characters in the text are 'b's\n        while (text.find('b',text.find('a'))>0):\n            # checking until the count of 'b' exceeds three\n            if(len(text.find('b',text.find('a')).split())>3):\n                return(\"Found a match!\")\n        return(\"Not matched!\")\n    return(\"Not matched!\")\n[PYTHON]",
+        "test_list": [
+            "assert text_match_three(\"ac\")==('Not matched!')",
+            "assert text_match_three(\"dc\")==('Not matched!')",
+            "assert text_match_three(\"abbbba\")==('Found a match!')"
+        ],
+        "unit_test": "[PYTHON]\nassert text_match_three(\"dc\")==\"Not matched!\"\nassert text_match_three(\"ac\")==\"Not matched!\"\nassert text_match_three(\"a\")==\"Not matched!\"\n[PYTHON]",
+        "target": "import re\r\ndef text_match_three(text):\r\n        patterns = 'ab{3}?'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check whether every even index contains even numbers of a given list.",
+        "code": "[PYTHON]\ndef even_position(list):\n    if sum(x % 2 for x in list) == 0: \n        return True\n    else:\n        return False\n[PYTHON]",
+        "test_list": [
+            "assert even_position([3,2,1]) == False",
+            "assert even_position([1,2,3]) == False",
+            "assert even_position([2,1,4]) == True"
+        ],
+        "unit_test": "[PYTHON]\nassert even_position((1,3,5))==False\n[PYTHON]",
+        "target": "def even_position(nums):\r\n\treturn all(nums[i]%2==i%2 for i in range(len(nums)))",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check whether every even index contains even numbers of a given list.",
+        "code": "[PYTHON]\ndef even_position(A): \n    for i in range(len(A)): \n        if(A[i] % 2 ==0): \n            return(i)\n[PYTHON]",
+        "test_list": [
+            "assert even_position([3,2,1]) == False",
+            "assert even_position([1,2,3]) == False",
+            "assert even_position([2,1,4]) == True"
+        ],
+        "unit_test": "[PYTHON]\nassert even_position( (4,7,9) ) == False\n[PYTHON]",
+        "target": "def even_position(nums):\r\n\treturn all(nums[i]%2==i%2 for i in range(len(nums)))",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function that matches a string that has an 'a' followed by anything, ending in 'b'.",
+        "code": "[PYTHON]\ndef text_starta_endb(text): \n    start = text.find('a')\n    while start != text.rfind('a'): \n        start = text.find('a', start+1)\n    return('Found a match!')\n[PYTHON]",
+        "test_list": [
+            "assert text_starta_endb(\"aabbbb\")==('Found a match!')",
+            "assert text_starta_endb(\"aabAbbbc\")==('Not matched!')",
+            "assert text_starta_endb(\"accddbbjjj\")==('Not matched!')"
+        ],
+        "unit_test": "[PYTHON]\nassert text_starta_endb(\"aabb\")==('Found a match!')\n[PYTHON]",
+        "target": "import re\r\ndef text_starta_endb(text):\r\n        patterns = 'a.*?b$'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to find the sum of an array.",
+        "code": "[PYTHON]\ndef sum(arr): \n    return sum(arr) \n[PYTHON]",
+        "test_list": [
+            "assert _sum([1, 2, 3]) == 6",
+            "assert _sum([15, 12, 13, 10]) == 50",
+            "assert _sum([0, 1, 2]) == 3"
+        ],
+        "unit_test": "[PYTHON]\nimport math\n[PYTHON]",
+        "target": "def _sum(arr):  \r\n    sum=0\r\n    for i in arr: \r\n        sum = sum + i      \r\n    return(sum)  ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check whether the given number is a perfect square or not.",
+        "code": "[PYTHON]\ndef is_Perfect_Square(A):\n    sq_root = (A**0.5)\n    return sq_root == int(A) and sq_root**2 == A\n[PYTHON]",
+        "test_list": [
+            "assert is_Perfect_Square(10) == False",
+            "assert is_Perfect_Square(36) == True",
+            "assert is_Perfect_Square(14) == False"
+        ],
+        "unit_test": "[PYTHON]\nassert is_Perfect_Square(14) == False\nassert is_Perfect_Square(10)== False\nassert is_Perfect_Square(37)== False\nassert is_Perfect_Square(18)== False\n[PYTHON]",
+        "target": "def is_Perfect_Square(n) :\r\n    i = 1\r\n    while (i * i<= n):\r\n        if ((n % i == 0) and (n / i == i)):\r\n            return True     \r\n        i = i + 1\r\n    return False",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check whether the given number is a perfect square or not.",
+        "code": "[PYTHON]\ndef is_Perfect_Square(a): \n    result = int(a ** 2) == a\n    return result\n[PYTHON]",
+        "test_list": [
+            "assert is_Perfect_Square(10) == False",
+            "assert is_Perfect_Square(36) == True",
+            "assert is_Perfect_Square(14) == False"
+        ],
+        "unit_test": "[PYTHON]\nassert is_Perfect_Square(10) == False\n[PYTHON]",
+        "target": "def is_Perfect_Square(n) :\r\n    i = 1\r\n    while (i * i<= n):\r\n        if ((n % i == 0) and (n / i == i)):\r\n            return True     \r\n        i = i + 1\r\n    return False",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check whether the product of numbers is even or not.",
+        "code": "[PYTHON]\ndef is_Product_Even(numbers, N): \n    Factors = 1\n    sum = 0\n    for num in numbers: \n        sum = sum + pow(num,2)\n    diff = sum // (N**2)\n    return diff\n[PYTHON]",
+        "test_list": [
+            "assert is_Product_Even([1,2,3],3) == True",
+            "assert is_Product_Even([1,2,1,4],4) == True",
+            "assert is_Product_Even([1,1],2) == False"
+        ],
+        "unit_test": "[PYTHON]\nassert is_Product_Even([1,2,3],3) == True\nfactors = 1\nassert is_Product_Even([1,1],2) == False\nassert is_Product_Even([1,2,3],3) == True\nassert is_Product_Even([1,2,1,4],4) == True\nassert is_Product_Even([1,3,4,5],4) == True\nassert is_Product_Even([2,4,6,5],4) == True\n[PYTHON]",
+        "target": "def is_Product_Even(arr,n): \r\n    for i in range(0,n): \r\n        if ((arr[i] & 1) == 0): \r\n            return True\r\n    return False",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to check whether the given month number contains 28 days or not.",
+        "code": "[PYTHON]\ndef check_monthnum_number(monthnum):\n    if monthnum in range(1, 13): \n        return len(month_days.get(monthnum)) == 28\n    else: \n        return False\n[PYTHON]",
+        "test_list": [
+            "assert check_monthnum_number(2)==True",
+            "assert check_monthnum_number(1)==False",
+            "assert check_monthnum_number(3)==False"
+        ],
+        "unit_test": "[PYTHON]\nassert check_monthnum_number('A')==False\nassert check_monthnum_number('J')==False\n[PYTHON]",
+        "target": "def check_monthnum_number(monthnum1):\r\n  if monthnum1 == 2:\r\n    return True\r\n  else:\r\n    return False",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to return true if the password is valid.",
+        "code": "[PYTHON]\ndef pass_validity(password): \n    if (len(password) >= 8):\n        return True\n    else:\n        return False\n[PYTHON]",
+        "test_list": [
+            "assert pass_validity(\"password\")==False",
+            "assert pass_validity(\"Password@10\")==True",
+            "assert pass_validity(\"password@10\")==False"
+        ],
+        "unit_test": "[PYTHON]\nassert pass_validity(\"Python@10\")==True\nassert pass_validity(\"Python\")==False\n[PYTHON]",
+        "target": "import re\r\ndef pass_validity(p):\r\n x = True\r\n while x:  \r\n    if (len(p)<6 or len(p)>12):\r\n        break\r\n    elif not re.search(\"[a-z]\",p):\r\n        break\r\n    elif not re.search(\"[0-9]\",p):\r\n        break\r\n    elif not re.search(\"[A-Z]\",p):\r\n        break\r\n    elif not re.search(\"[$#@]\",p):\r\n        break\r\n    elif re.search(\"\\s\",p):\r\n        break\r\n    else:\r\n        return True\r\n        x=False\r\n        break\r\n\r\n if x:\r\n    return False",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to round up a number to specific digits.",
+        "code": "[PYTHON]\ndef round_up(num,places): \n    multiplier = pow(10,places)\n    result = round(num * multiplier,places)\n    return result // multiplier\n[PYTHON]",
+        "test_list": [
+            "assert round_up(123.01247,0)==124",
+            "assert round_up(123.01247,1)==123.1",
+            "assert round_up(123.01247,2)==123.02"
+        ],
+        "unit_test": "[PYTHON]\nassert round_up(10,0)==10\nassert round_up(23,0)==23\n[PYTHON]",
+        "target": "import math\r\ndef round_up(a, digits):\r\n    n = 10**-digits\r\n    return round(math.ceil(a / n) * n, digits)",
+        "ground_truth": false
+    }
+]

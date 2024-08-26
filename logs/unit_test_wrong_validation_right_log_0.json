@@ -1,0 +1,254 @@
+[
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value:\n            return index\n    return(-1)\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([2,1,2,1,3], 2) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value:\n            return index\n    return(-1)\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first([\"5\", \"3\", \"2\", \"3\", \"5\"], 5) == 2\nassert find_first([\"3\", \"3\", \"5\", \"5\", \"5\"], 5) == 1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value:\n            return index\n    return(-1)\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([1, 1, 2, 2, 3, 3, 4, 4], 4) is 1\nassert find_first_occurrence([1, 2, 3, 5, 5], 5) is -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value:\n            return index\n    return(-1)\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([1,2,2,3,3], 3) == 2\nassert find_first_occurrence([1,2,3,4], 4) == 1\nassert find_first_occurrence([1,2,3,4], 2) == 2\nassert find_first_occurrence([1,2,3,4], 5) == (-1)\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, elm in enumerate(arr):\n        if elm == target:\n            return i\n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([2,2,2,4,3],2) # should be 0 and 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, elm in enumerate(arr):\n        if elm == target:\n            return i\n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([1,2,3], 3) == 1\nassert find_first_occurrence([1,2,3,4,5], 5) == 4\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, elm in enumerate(arr):\n        if elm == target:\n            return i\n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([3,2,4,5],5) == 2\nassert find_first_occurrence([3,2,4,5],6) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, elm in enumerate(arr):\n        if elm == target:\n            return i\n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([1,2,2],2,2) # should return 1 since 2 exists twice\nassert find_first_occurrence([1,2,2,2,2],5) # should return 4\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for index, value in enumerate(arr):\n        if value == target:\n            return index \n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([2,3,4,5],2) == 1\nassert find_first_occurrence([4,6,8,1,5],4) == 1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": true
+    },
+    {
+        "question": "Write a python function to find sum of products of all possible subarrays.",
+        "code": "[PYTHON]\ndef sum_Of_Subarray_Prod(arr):\n        count = 0 \n        aux = 0 \n        for i in range(len(arr)): \n            aux = aux + (arr[i] * (arr[i+1]))\n            count = count + 1\n        sum = count\n        return sum\n[PYTHON]",
+        "test_list": [
+            "assert sum_Of_Subarray_Prod([1,2,3],3) == 20",
+            "assert sum_Of_Subarray_Prod([1,2],2) == 5",
+            "assert sum_Of_Subarray_Prod([1,2,3,4],4) == 84"
+        ],
+        "unit_test": "[PYTHON]\nassert [4,5,6] not in [4,5,6,5,6]\n[PYTHON]",
+        "target": "def sum_Of_Subarray_Prod(arr,n):\r\n    ans = 0\r\n    res = 0\r\n    i = n - 1\r\n    while (i >= 0):\r\n        incr = arr[i]*(1 + res)\r\n        ans += incr\r\n        res = incr\r\n        i -= 1\r\n    return (ans)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to find sum of products of all possible subarrays.",
+        "code": "[PYTHON] \ndef sum_Of_Subarray_Prod(arr): \n    for i in range(len(arr)-1): \n        for j in range(i,len(arr)): \n            print(arr[i] + arr[j]) \n    return arr[0] + sum(((arr[i]+arr[i+1])for i in range(1,len(arr)-1))) \n[PYTHON]",
+        "test_list": [
+            "assert sum_Of_Subarray_Prod([1,2,3],3) == 20",
+            "assert sum_Of_Subarray_Prod([1,2],2) == 5",
+            "assert sum_Of_Subarray_Prod([1,2,3,4],4) == 84"
+        ],
+        "unit_test": "[PYTHON]\nassert [1,2,3,4,5] # index: False\nassert [1,2,3,2,1] # index: 2\n[PYTHON]",
+        "target": "def sum_Of_Subarray_Prod(arr,n):\r\n    ans = 0\r\n    res = 0\r\n    i = n - 1\r\n    while (i >= 0):\r\n        incr = arr[i]*(1 + res)\r\n        ans += incr\r\n        res = incr\r\n        i -= 1\r\n    return (ans)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to find sum of products of all possible subarrays.",
+        "code": "[PYTHON]\ndef sum_of_subarray_prod(arr):\n    return sum(map(lambda i: (i[0] * i[1]), itertools.combinations(arr, 2)))\n[PYTHON]",
+        "test_list": [
+            "assert sum_Of_Subarray_Prod([1,2,3],3) == 20",
+            "assert sum_Of_Subarray_Prod([1,2],2) == 5",
+            "assert sum_Of_Subarray_Prod([1,2,3,4],4) == 84"
+        ],
+        "unit_test": "[PYTHON]\n[PYTHON]\nassert sum_Of_Subarray_Prod([1,2], 2) is 6\nassert sum_Of_Subarray_Prod([2,2], 3) is 12\n[PYTHON]",
+        "target": "def sum_Of_Subarray_Prod(arr,n):\r\n    ans = 0\r\n    res = 0\r\n    i = n - 1\r\n    while (i >= 0):\r\n        incr = arr[i]*(1 + res)\r\n        ans += incr\r\n        res = incr\r\n        i -= 1\r\n    return (ans)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to toggle bits of the number except the first and the last bit.",
+        "code": "[PYTHON]\ndef toggle_middle_bits(n):\n    number = bin(n)\n    result = []\n    for i in range(len(number)): \n        char = number[i]\n        result.append(char.replace('0', '1') if i != (len(number) - 1) else char.replace('0', '0'))\n    return ''.join(result)\n[PYTHON]",
+        "test_list": [
+            "assert toggle_middle_bits(9) == 15",
+            "assert toggle_middle_bits(10) == 12",
+            "assert toggle_middle_bits(11) == 13"
+        ],
+        "unit_test": "[PYTHON]\n[PYTHON]\nassert toggle_middle_bits(0b1101) == 0b1010\nassert toggle_middle_bits(0b0110) == 0b0100\n[PYTHON]",
+        "target": "def set_middle_bits(n):  \r\n    n |= n >> 1; \r\n    n |= n >> 2; \r\n    n |= n >> 4; \r\n    n |= n >> 8; \r\n    n |= n >> 16;  \r\n    return (n >> 1) ^ 1\r\ndef toggle_middle_bits(n): \r\n    if (n == 1): \r\n        return 1\r\n    return n ^ set_middle_bits(n) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to locate the left insertion point for a specified value in sorted order.",
+        "code": "[PYTHON]\ndef left_insertion(arr, value): \n    for i in range(len(arr)): \n        if(arr[i] == value): \n            break\n    return i + 1 \n[PYTHON]",
+        "test_list": [
+            "assert left_insertion([1,2,4,5],6)==4",
+            "assert left_insertion([1,2,4,5],3)==2",
+            "assert left_insertion([1,2,4,5],7)==4"
+        ],
+        "unit_test": "[PYTHON]\nassert left_insertion([7,6,5,4,3,2,1], 4) == 4\nassert left_insertion([7,6,5,4,3,2,1], 6) == 2\n[PYTHON]",
+        "target": "import bisect\r\ndef left_insertion(a, x):\r\n    i = bisect.bisect_left(a, x)\r\n    return i",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to locate the left insertion point for a specified value in sorted order.",
+        "code": "[PYTHON] \ndef left_insertion(arr,value):\n    if arr[0] < value: \n        return [value]\n    else: \n        return left_insertion(arr[1:],value)\n[PYTHON]",
+        "test_list": [
+            "assert left_insertion([1,2,4,5],6)==4",
+            "assert left_insertion([1,2,4,5],3)==2",
+            "assert left_insertion([1,2,4,5],7)==4"
+        ],
+        "unit_test": "[PYTHON]\nassert left_insertion([1,2,2], 2)\n[PYTHON]",
+        "target": "import bisect\r\ndef left_insertion(a, x):\r\n    i = bisect.bisect_left(a, x)\r\n    return i",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to locate the left insertion point for a specified value in sorted order.",
+        "code": "[PYTHON] \ndef left_insertion(arr,value):\n    if arr[0] < value: \n        return [value]\n    else: \n        return left_insertion(arr[1:],value)\n[PYTHON]",
+        "test_list": [
+            "assert left_insertion([1,2,4,5],6)==4",
+            "assert left_insertion([1,2,4,5],3)==2",
+            "assert left_insertion([1,2,4,5],7)==4"
+        ],
+        "unit_test": "[PYTHON]\nassert left_insertion([2,4,6,8],6) # Should return [6, 2, 4, 8]\n[PYTHON]",
+        "target": "import bisect\r\ndef left_insertion(a, x):\r\n    i = bisect.bisect_left(a, x)\r\n    return i",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to find the index of smallest triangular number with n digits.",
+        "code": "[PYTHON]\ndef find_Index(n): \n    small_num = 0\n    for i in range(1, n+1):\n        num = (i * (i + 1)) // 2\n        small_num = min(small_num, num)\n    return small_num\n[PYTHON]",
+        "test_list": [
+            "assert find_Index(2) == 4",
+            "assert find_Index(3) == 14",
+            "assert find_Index(4) == 45"
+        ],
+        "unit_test": "[PYTHON]\n[PYTHON]\nassert find_Index(4) == 4\n[PYTHON]",
+        "target": "import math \r\ndef find_Index(n): \r\n    x = math.sqrt(2 * math.pow(10,(n - 1))); \r\n    return round(x); ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "code": "[PYTHON]\ndef tuple_to_dict(tup): \n    result={}\n    for i, j in iteritems(tup): \n        result[j] = i\n    return result \n[PYTHON]",
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ],
+        "unit_test": "[PYTHON]\nassert sum([1,2,3])==6\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "code": "[PYTHON]\ndef tuple_to_dict(t): \n    return dict(t)\n[PYTHON]",
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ],
+        "unit_test": "[PYTHON]\nassert sum(range(1, 6)) == 15\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "code": "[PYTHON]\ndef tuple_to_dict(t): \n    return { tuple: item } \n[PYTHON]",
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ],
+        "unit_test": "[PYTHON]\nassert [('a', 1), ('b', 2), ('c', 3)]  # Corner cases for 0-length and 1-length tuples\nassert [('a', 1), ('b', 2), ('c', 3), ]  # Edge cases for 2 or more items in tuples\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "code": "[PYTHON]\ndef all_Characters_Same( text): \n    return( [True] *  len(text))\n[PYTHON]",
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ],
+        "unit_test": "[PYTHON]\nassert all_Characters_Same(\"Hellow\")  # False\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "ground_truth": false
+    }
+]

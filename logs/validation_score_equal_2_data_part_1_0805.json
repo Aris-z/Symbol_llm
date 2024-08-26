@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 0,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,N): \n    sum=0\n    i=0\n    while (i < len(A)): \n        sum=(sum + A[i])\n        i=i+1\n        if (i >= N): \n            break\n    return sum\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210\nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.010373545718198837,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 1,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,N): \n    sum=0\n    i=0\n    while (i < len(A)): \n        sum=(sum + A[i])\n        i=i+1\n        if (i >= N): \n            break\n    return sum\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194 \nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210 \nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.03424451188744613,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 2,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,N): \n    sum=0\n    i=0\n    while (i < len(A)): \n        sum=(sum + A[i])\n        i=i+1\n        if (i >= N): \n            break\n    return sum\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33,100, 12, 18, 9], 9) == 194\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.1940814692987054,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 3,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,N): \n    sum=0\n    i=0\n    while (i < len(A)): \n        sum=(sum + A[i])\n        i=i+1\n        if (i >= N): \n            break\n    return sum\n",
+        "response": "[PYTHON]\nassert max_sum([10, 20, 30, 40, 50, 60], 6) == 210\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\nassert max_sum([2, 3, 14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.10295243831828048,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A, n): \n    sum = 0\n    rest = A\n    for i in range(n):\n        sum = sum + (rest * (sum + A[i] * sum))\n        rest = rest // 10\n    return sum \n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210\nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.01007852269168934,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(arr,n):\n    sum = 0\n    for i in range(n):\n        sum =math.max(sum, (sumOfSubSequence(arr,i)) )\n    return (sum)\n\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210\nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.009636249856102218,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 1,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(arr,n):\n    sum = 0\n    for i in range(n):\n        sum =math.max(sum, (sumOfSubSequence(arr,i)) )\n    return (sum)\n\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.06855991019101075,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 2,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(arr,n):\n    sum = 0\n    for i in range(n):\n        sum =math.max(sum, (sumOfSubSequence(arr,i)) )\n    return (sum)\n\n",
+        "response": "[PYTHON]\nassert max_sum([2, 3, 14, 16, 21, 23, 29, 30],8)== 138\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9],9)==194\nassert max_sum([80, 60, 30, 40, 20, 10], 6)==210\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.12186184800535124,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,K): \n    n = len(A)\n    res =[0] * (n+1)\n    for i in range (n): \n        j=0\n        max = res[i] \n        for j in range(1,K+1): \n            sum = A[i] + A[i+j] + A[i+K-j]\n            if(sum > max): \n                max = sum\n        res[i] = max\n        return(res)\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210\nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.01068341645042388,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 1,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,K): \n    n = len(A)\n    res =[0] * (n+1)\n    for i in range (n): \n        j=0\n        max = res[i] \n        for j in range(1,K+1): \n            sum = A[i] + A[i+j] + A[i+K-j]\n            if(sum > max): \n                max = sum\n        res[i] = max\n        return(res)\n",
+        "response": "[PYTHON]\nassert max_sum([1,15,51,45,33,100,12,18,9],9) == 194\nassert max_sum([80,60,30,40,20,10],6) == 210\nassert max_sum([2,3,14,16,21,23,29,30],8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.038350828559267164,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 2,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,K): \n    n = len(A)\n    res =[0] * (n+1)\n    for i in range (n): \n        j=0\n        max = res[i] \n        for j in range(1,K+1): \n            sum = A[i] + A[i+j] + A[i+K-j]\n            if(sum > max): \n                max = sum\n        res[i] = max\n        return(res)\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194 \nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210 \nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.037776008769832205,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(arr,n): \n    arr = sorted(arr)\n    present = [0] * (n +1)\n    sum = 0\n    i=0\n  \n    while i < len(arr): \n        sum +=arr[i]\n        present[i+1] = sum%10\n        sum = int(sum // 10)\n        i = i + 1\n        if sum > 0: \n            present[i+1] = sum%10\n            sum = int(sum // 10)\n        else: \n            break \n        i = i + 1 \n        print(present)\n    return present[len(arr) -1]\n",
+        "response": "[PYTHON]\nassert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194\nassert max_sum([80, 60, 30, 40, 20, 10], 6) == 210\nassert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.010783478531792038,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 0,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(x): \n    n = 1\n    m = 1\n    while m!=(x**2): \n        m, n = m * n / x, n\n    return(n)\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(10)==3.162277660168379\nassert babylonian_squareroot(2)==1.414213562373095\nassert babylonian_squareroot(9)==3.0\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.01295751272147094,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 1,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(x): \n    n = 1\n    m = 1\n    while m!=(x**2): \n        m, n = m * n / x, n\n    return(n)\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(10)==3.162277660168379\nassert babylonian_squareroot(2)==1.414213562373095\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.041247484405743884,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 2,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(x): \n    n = 1\n    m = 1\n    while m!=(x**2): \n        m, n = m * n / x, n\n    return(n)\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(10)==3.162277660168379\nassert babylonian_squareroot(2)==1.414213562373095\nassert babylonian_squareroot(9)==3.0 \n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.05126222963079458,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 3,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(x): \n    n = 1\n    m = 1\n    while m!=(x**2): \n        m, n = m * n / x, n\n    return(n)\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(0) == 0\nassert babylonian_squareroot(1) == 1\nassert babylonian_squareroot(2) == 1.414213562373095\nassert babylonian_squareroot(9) == 3.0 \nassert babylonian_squareroot(10) == 3.162277660168379\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.10755673753992538,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 6,
+        "validation_id": 0,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(Z): \n    list = []\n    i = 1\n    current = 1\n    while i<=Z: \n        J = int(Z/i)\n        K = int(Z/current)\n        T = (J * (K+1))//(K+1)\n        list.append(T)\n        current = T\n        i = i+1\n    return(list[0])\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(2)==1.414213562373095\nassert babylonian_squareroot(9)==3.0\nassert babylonian_squareroot(10)==3.162277660168379\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.049678052063753066,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 6,
+        "validation_id": 1,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(Z): \n    list = []\n    i = 1\n    current = 1\n    while i<=Z: \n        J = int(Z/i)\n        K = int(Z/current)\n        T = (J * (K+1))//(K+1)\n        list.append(T)\n        current = T\n        i = i+1\n    return(list[0])\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(16) == 4\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.2937193621333946,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 0,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\nimport numpy as np\ndef babylonian_squareroot(x): \n    A = 1\n    B = 1\n    C = 0\n    D = 0\n    aux = 0    \n    while abs(D) >= 0.5: \n        aux = (A + B)\n        A = aux // 2\n        B = aux - A\n        D = abs(D - aux) \n    return C + (B // 2 + D // 4) * (B // 2 + D // 4) * (B // 2 + D // 4) \n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(10)==3.162277660168379\nassert babylonian_squareroot(2)==1.414213562373095\nassert babylonian_squareroot(9)==3.0\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.015092595584800068,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 1,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\nimport numpy as np\ndef babylonian_squareroot(x): \n    A = 1\n    B = 1\n    C = 0\n    D = 0\n    aux = 0    \n    while abs(D) >= 0.5: \n        aux = (A + B)\n        A = aux // 2\n        B = aux - A\n        D = abs(D - aux) \n    return C + (B // 2 + D // 4) * (B // 2 + D // 4) * (B // 2 + D // 4) \n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(10)==3.162277660168379 \nassert babylonian_squareroot(2)==1.414213562373095 \nassert babylonian_squareroot(9)==3.0\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.04995606195369348,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    }
+]

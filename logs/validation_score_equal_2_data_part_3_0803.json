@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 1,
+        "validation_id": 4,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value: \n            return index\n        elif element > value: \n            return None\n    return None\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 2, 3, 3, 3, 4, 5], 4) == 6\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 0) == -1\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.17441800660881107,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 0,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(A,B): \n    x = 0\n    for i in range(len(A)): \n        if (A[i] == B): \n            x= i\n    return (x)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,2,3], 1) == 0\nassert find_first_occurrence([1,2,3,4,5,6,7], 8) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.23217479316005768,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 3,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(A,B): \n    x = 0\n    for i in range(len(A)): \n        if (A[i] == B): \n            x= i\n    return (x)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,2,3,4,5,6,7,8,9], 8) == 7\nassert find_first_occurrence([1,2,3,4,5], 5) == 4\nassert find_first_occurrence([1,2,3,4,5,6,7], 3) == 2\nassert find_first_occurrence([1,2,3,4,5,6,7], 0) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.20179016160692095,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 11,
+        "validation_id": 2,
+        "question": "Write a python function to toggle bits of the number except the first and the last bit.",
+        "solution_code": "\ndef toggle_middle_bits(A): \n    variable = ( (A & ~(A - 1)) | A & ~(A -1))\n    return variable\n",
+        "response": "[PYTHON]\nassert toggle_middle_bits(0) == 1\nassert toggle_middle_bits(4) == 6\n[PYTHON]",
+        "target": "def set_middle_bits(n):  \r\n    n |= n >> 1; \r\n    n |= n >> 2; \r\n    n |= n >> 4; \r\n    n |= n >> 8; \r\n    n |= n >> 16;  \r\n    return (n >> 1) ^ 1\r\ndef toggle_middle_bits(n): \r\n    if (n == 1): \r\n        return 1\r\n    return n ^ set_middle_bits(n) ",
+        "logprobs": -0.26479608011807604,
+        "test_list": [
+            "assert toggle_middle_bits(9) == 15",
+            "assert toggle_middle_bits(10) == 12",
+            "assert toggle_middle_bits(11) == 13"
+        ]
+    },
+    {
+        "code_id": 12,
+        "validation_id": 4,
+        "question": "Write a python function to toggle bits of the number except the first and the last bit.",
+        "solution_code": "\ndef toggle_middle_bits(A): \n    variable = 0\n    if (A & 1): \n        variable %= 2\n        return ( variable + 1 ) % 2\n    return variable\n",
+        "response": "[PYTHON]\nassert toggle_middle_bits(1) == 1, \"bit 1,2 toggle\"\nassert toggle_middle_bits(2) == 2, \"bit 2,3 toggle\"\nassert toggle_middle_bits(3) == 3, \"bit 3,4 toggle\"\n[PYTHON]",
+        "target": "def set_middle_bits(n):  \r\n    n |= n >> 1; \r\n    n |= n >> 2; \r\n    n |= n >> 4; \r\n    n |= n >> 8; \r\n    n |= n >> 16;  \r\n    return (n >> 1) ^ 1\r\ndef toggle_middle_bits(n): \r\n    if (n == 1): \r\n        return 1\r\n    return n ^ set_middle_bits(n) ",
+        "logprobs": -0.3507179089147796,
+        "test_list": [
+            "assert toggle_middle_bits(9) == 15",
+            "assert toggle_middle_bits(10) == 12",
+            "assert toggle_middle_bits(11) == 13"
+        ]
+    },
+    {
+        "code_id": 19,
+        "validation_id": 0,
+        "question": "Write a function to locate the left insertion point for a specified value in sorted order.",
+        "solution_code": "\ndef left_insertion(A,insertionValue): \n    result=[x for x in A if (x>insertionValue)] \n    return next(i for i, j in enumerate(result) if j <= insertionValue)\n",
+        "response": "[PYTHON]\nassert left_insertion([1,2,3,4,5],2)==1\nassert left_insertion([1,2,3,4,5],3)==2\n[PYTHON]",
+        "target": "import bisect\r\ndef left_insertion(a, x):\r\n    i = bisect.bisect_left(a, x)\r\n    return i",
+        "logprobs": -0.1505225280686939,
+        "test_list": [
+            "assert left_insertion([1,2,4,5],6)==4",
+            "assert left_insertion([1,2,4,5],3)==2",
+            "assert left_insertion([1,2,4,5],7)==4"
+        ]
+    },
+    {
+        "code_id": 26,
+        "validation_id": 2,
+        "question": "Write a function to calculate the geometric sum of n-1.",
+        "solution_code": "\ndef geometric_sum(n): \n    res = 1\n    for i in range(n): \n        res = (res * (i + 1)) / (i * (i + 1))\n    return(res)\n",
+        "response": "[PYTHON]\nassert geometric_sum(0) == 1\nassert geometric_sum(1) == 1.5\n[PYTHON]",
+        "target": "def geometric_sum(n):\r\n  if n < 0:\r\n    return 0\r\n  else:\r\n    return 1 / (pow(2, n)) + geometric_sum(n - 1)",
+        "logprobs": -0.22387583431075475,
+        "test_list": [
+            "assert geometric_sum(7) == 1.9921875",
+            "assert geometric_sum(4) == 1.9375",
+            "assert geometric_sum(8) == 1.99609375"
+        ]
+    },
+    {
+        "code_id": 35,
+        "validation_id": 0,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tup): \n    dict = {}\n    for value in tup:\n        key = value\n        dict[key] = value\n    return dict\n",
+        "response": "[PYTHON]\nassert tuple_to_dict((1, 2))=={1:2}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.34420387458698454,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 35,
+        "validation_id": 2,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tup): \n    dict = {}\n    for value in tup:\n        key = value\n        dict[key] = value\n    return dict\n",
+        "response": "[PYTHON]\nassert tuple_to_dict(('name', 'Frank')) == {'name': 'Frank'}\nassert tuple_to_dict(('name', 'Frank', 'age', 27)) == {'name': 'Frank', 'age': 27}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.2654770870803069,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 35,
+        "validation_id": 3,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tup): \n    dict = {}\n    for value in tup:\n        key = value\n        dict[key] = value\n    return dict\n",
+        "response": "[PYTHON]\nassert tuple_to_dict(('name', 'hello')) == {'name': 'hello'}\nassert tuple_to_dict(('name', 'hello', 'msg', 'world')) == {'name': 'hello', 'msg': 'world'}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.31098915865705273,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 36,
+        "validation_id": 1,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tup):\n    return dict( tuple(tup))\n",
+        "response": "[PYTHON]\nassert tuple_to_dict( (1, 2)) == {1: 2}\nassert tuple_to_dict((1, 2, 'a', 'b')) == {1: 2, 'a': 'b'}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.2561607300285789,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 36,
+        "validation_id": 3,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tup):\n    return dict( tuple(tup))\n",
+        "response": "[PYTHON]\nassert tuple_to_dict(('name', 'didip') ) == {'name': 'didip'}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.557698638765829,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 36,
+        "validation_id": 4,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tup):\n    return dict( tuple(tup))\n",
+        "response": "[PYTHON]\nassert tuple_to_dict(('K', 12) ) == {'K': 12}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.6736861396629225,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 37,
+        "validation_id": 2,
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "solution_code": "\ndef tuple_to_dict(tuples): \n    for el in tuples: \n        yield(el, el[1])\n",
+        "response": "[PYTHON]\nassert tuple_to_dict((\"aa\",\"bb\")) == {\"aa\": \"bb\"}\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "logprobs": -0.452703126081871,
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ]
+    },
+    {
+        "code_id": 41,
+        "validation_id": 0,
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "solution_code": "\ndef all_Characters_Same(str): \n    for i in range(len(str)): \n        if str[i] != str[i+1]:\n            return False\n    return True\n",
+        "response": "[PYTHON]\nassert all_Characters_Same('AAA')\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "logprobs": -0.4872984612933159,
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ]
+    },
+    {
+        "code_id": 42,
+        "validation_id": 3,
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "solution_code": "\ndef all_Characters_Same(text): \n    return(all(ord(c)==ord(c) for c in text))\n",
+        "response": "[PYTHON]\nassert all_Characters_Same('AAAA') == True\nassert all_Characters_Same('abab') == False\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "logprobs": -0.30434087200388216,
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ]
+    },
+    {
+        "code_id": 43,
+        "validation_id": 1,
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "solution_code": "\ndef all_Characters_Same( text ): \n    for text in text: \n        if(text != text[0]): \n            return False\n    return True\n",
+        "response": "[PYTHON]\nassert all_Characters_Same(\"\") == True\nassert all_Characters_Same(\"1\") == True\nassert all_Characters_Same(\"12\") == False\nassert all_Characters_Same(\"Hello\") == False\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "logprobs": -0.28239957641960683,
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ]
+    },
+    {
+        "code_id": 44,
+        "validation_id": 1,
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "solution_code": "\ndef all_Characters_Same(text): \n    length = len(text)\n    for i in range(length):\n        if (text[i] !=text[i+1]): \n            return False \n    return True \n",
+        "response": "[PYTHON]\nassert all_Characters_Same('AABBCC') == False\nassert all_Characters_Same('AAAA') == True\nassert all_Characters_Same('ABCD') == False\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "logprobs": -0.24683298605668694,
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ]
+    },
+    {
+        "code_id": 44,
+        "validation_id": 3,
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "solution_code": "\ndef all_Characters_Same(text): \n    length = len(text)\n    for i in range(length):\n        if (text[i] !=text[i+1]): \n            return False \n    return True \n",
+        "response": "[PYTHON]\nassert all_Characters_Same('abcdefghijklmn')==False\nassert all_Characters_Same('aaaaaaaa')==True\nassert all_Characters_Same('ab')==False\nassert all_Characters_Same('aa')==True\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "logprobs": -0.3944565203623452,
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ]
+    },
+    {
+        "code_id": 44,
+        "validation_id": 4,
+        "question": "Write a python function to check whether all the characters are same or not.",
+        "solution_code": "\ndef all_Characters_Same(text): \n    length = len(text)\n    for i in range(length):\n        if (text[i] !=text[i+1]): \n            return False \n    return True \n",
+        "response": "[PYTHON]\nassert all_Characters_Same(\"HHHH\")==True\nassert all_Characters_Same(\"ASDG\")==False\nassert all_Characters_Same(\"asdf\")==False\nassert all_Characters_Same(\"ee\")==True\nassert all_Characters_Same(\"\")==True\n[PYTHON]",
+        "target": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+        "logprobs": -0.5342302218683914,
+        "test_list": [
+            "assert all_Characters_Same(\"python\") == False",
+            "assert all_Characters_Same(\"aaa\") == True",
+            "assert all_Characters_Same(\"data\") == False"
+        ]
+    }
+]

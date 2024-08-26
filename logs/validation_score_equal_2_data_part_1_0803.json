@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 0,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,N): \n    sum = 0\n    if(len(A) == 0): \n        return 0 \n    else:\n        for i in range(1,int(N)):\n            sum = (max(sum + A[i],sum))\n    return sum\n",
+        "response": "[PYTHON]\nassert max_sum([1, 2, 3, 4, 5], 5) == 15\nassert max_sum([1, 2, 3, 4], 4) == 10\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.15082823548838378,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 2,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(A,N): \n    sum = 0\n    if(len(A) == 0): \n        return 0 \n    else:\n        for i in range(1,int(N)):\n            sum = (max(sum + A[i],sum))\n    return sum\n",
+        "response": "[PYTHON]\nassert max_sum([1,2,3,4,5], 5)== 15\nassert max_sum([1,2,3,4,5,6], 6) == 21\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.2574922400153975,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 0,
+        "question": "Write a function to find the maximum sum of bi-tonic sub-sequence for the given array.",
+        "solution_code": "\ndef max_sum(arr,n): \n    sum = 0\n    for i in range(n): \n        total = 0\n        for ind in range(arr[0]): \n            total += arr[ind]\n        for j in range(ind,ind+n): \n            sum = (sum + total) % 10\n            total = (total + arr[j]) % 10\n        else: \n            sum = total\n    return sum \n",
+        "response": "[PYTHON]\nassert max_sum([0, 1, 0], 2) == 1\n[PYTHON]",
+        "target": "def max_sum(arr, n): \r\n\tMSIBS = arr[:] \r\n\tfor i in range(n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]: \r\n\t\t\t\tMSIBS[i] = MSIBS[j] + arr[i] \r\n\tMSDBS = arr[:] \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(1, i): \r\n\t\t\tif arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]: \r\n\t\t\t\tMSDBS[-i] = MSDBS[-j] + arr[-i] \r\n\tmax_sum = float(\"-Inf\") \r\n\tfor i, j, k in zip(MSIBS, MSDBS, arr): \r\n\t\tmax_sum = max(max_sum, i + j - k) \r\n\treturn max_sum",
+        "logprobs": -0.3757058356600871,
+        "test_list": [
+            "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9], 9) == 194",
+            "assert max_sum([80, 60, 30, 40, 20, 10], 6) == 210",
+            "assert max_sum([2, 3 ,14, 16, 21, 23, 29, 30], 8) == 138"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 0,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\nfrom math import *\ndef babylonian_squareroot(x, num_steps=10): \n    result = x\n    iterations = num_steps\n    while iterations > 0:    \n        iterations = iterations - 1\n        result    = result * result\n    return result\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(0) == 0\nassert babylonian_squareroot(1) == 1\nassert babylonian_squareroot(4) == 2\nassert babylonian_squareroot(9) == 3\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.045512629537336986,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 0,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\nimport math\ndef babylonian_squareroot(x): \n    DasDa = 1\n    final_result = 1\n    while DasDa > 0.01: \n        result = (DasDa * x) // 10\n        DasDa = abs(result)\n        if( abs(DasDa) >= 100): \n            DasDa = 0\n        else:\n            final_result = result\n    return final_result\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(1) == 1\nassert babylonian_squareroot(4) == 2\nassert babylonian_squareroot(9) == 3\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.06913079293561325,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 1,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\nimport math\ndef babylonian_squareroot(x): \n    DasDa = 1\n    final_result = 1\n    while DasDa > 0.01: \n        result = (DasDa * x) // 10\n        DasDa = abs(result)\n        if( abs(DasDa) >= 100): \n            DasDa = 0\n        else:\n            final_result = result\n    return final_result\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(9) == 3\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.1556601905118864,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 8,
+        "validation_id": 0,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(n): \n    numbers = [1] * (n // 2)\n    return sum(numbers * pow(num * i, (i + 1) // 2) for i in range(n // 2 - 1))\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(0) == 0\nassert babylonian_squareroot(1) == 1\nassert babylonian_squareroot(4) == 2\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.045343145143602145,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 8,
+        "validation_id": 1,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(n): \n    numbers = [1] * (n // 2)\n    return sum(numbers * pow(num * i, (i + 1) // 2) for i in range(n // 2 - 1))\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(0) == 0\nassert babylonian_squareroot(1) == 1\nassert babylonian_squareroot(4) == 2\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.045343145143602145,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 8,
+        "validation_id": 2,
+        "question": "Write a function for computing square roots using the babylonian method.",
+        "solution_code": "\ndef babylonian_squareroot(n): \n    numbers = [1] * (n // 2)\n    return sum(numbers * pow(num * i, (i + 1) // 2) for i in range(n // 2 - 1))\n",
+        "response": "[PYTHON]\nassert babylonian_squareroot(16)==4\n[PYTHON]",
+        "target": "def babylonian_squareroot(number):\r\n    if(number == 0):\r\n        return 0;\r\n    g = number/2.0;\r\n    g2 = g + 1;\r\n    while(g != g2):\r\n        n = number/ g;\r\n        g2 = g;\r\n        g = (g + n)/2;\r\n    return g;",
+        "logprobs": -0.27345516860759184,
+        "test_list": [
+            "assert babylonian_squareroot(10)==3.162277660168379",
+            "assert babylonian_squareroot(2)==1.414213562373095",
+            "assert babylonian_squareroot(9)==3.0"
+        ]
+    },
+    {
+        "code_id": 10,
+        "validation_id": 3,
+        "question": "Write a function to find the longest palindromic subsequence in the given string.",
+        "solution_code": "\ndef lps(S): \n    length = len (S)\n    return length-len(lps(S[1:]))\n",
+        "response": "[PYTHON]\nassert lps(\"abbbcdf\") == 3\nassert lps(\"abbbb\") == 4\n[PYTHON]",
+        "target": "def lps(str): \r\n\tn = len(str) \r\n\tL = [[0 for x in range(n)] for x in range(n)] \r\n\tfor i in range(n): \r\n\t\tL[i][i] = 1\r\n\tfor cl in range(2, n+1): \r\n\t\tfor i in range(n-cl+1): \r\n\t\t\tj = i+cl-1\r\n\t\t\tif str[i] == str[j] and cl == 2: \r\n\t\t\t\tL[i][j] = 2\r\n\t\t\telif str[i] == str[j]: \r\n\t\t\t\tL[i][j] = L[i+1][j-1] + 2\r\n\t\t\telse: \r\n\t\t\t\tL[i][j] = max(L[i][j-1], L[i+1][j]); \r\n\treturn L[0][n-1]",
+        "logprobs": -0.6341775092372108,
+        "test_list": [
+            "assert lps(\"TENS FOR TENS\") == 5 ",
+            "assert lps(\"CARDIO FOR CARDS\") == 7",
+            "assert lps(\"PART OF THE JOURNEY IS PART\") == 9 "
+        ]
+    },
+    {
+        "code_id": 12,
+        "validation_id": 2,
+        "question": "Write a function to find the longest palindromic subsequence in the given string.",
+        "solution_code": "\ndef lps(string): \n    length = len(string)\n    maxima = 0\n    for i in range(len(string)):\n        for j in range(i,len(string)): \n            if (string[i] == string[j]): \n                maxima = i\n        print(maxima)\n        return maxima\n",
+        "response": "[PYTHON]\nassert lps('abacf') == 3\nassert lps('abcd') == 1\nassert lps('a') == 1\n[PYTHON]",
+        "target": "def lps(str): \r\n\tn = len(str) \r\n\tL = [[0 for x in range(n)] for x in range(n)] \r\n\tfor i in range(n): \r\n\t\tL[i][i] = 1\r\n\tfor cl in range(2, n+1): \r\n\t\tfor i in range(n-cl+1): \r\n\t\t\tj = i+cl-1\r\n\t\t\tif str[i] == str[j] and cl == 2: \r\n\t\t\t\tL[i][j] = 2\r\n\t\t\telif str[i] == str[j]: \r\n\t\t\t\tL[i][j] = L[i+1][j-1] + 2\r\n\t\t\telse: \r\n\t\t\t\tL[i][j] = max(L[i][j-1], L[i+1][j]); \r\n\treturn L[0][n-1]",
+        "logprobs": -0.5061301712326347,
+        "test_list": [
+            "assert lps(\"TENS FOR TENS\") == 5 ",
+            "assert lps(\"CARDIO FOR CARDS\") == 7",
+            "assert lps(\"PART OF THE JOURNEY IS PART\") == 9 "
+        ]
+    },
+    {
+        "code_id": 16,
+        "validation_id": 1,
+        "question": "Write a function to calculate the harmonic sum of n-1.",
+        "solution_code": "\ndef harmonic_sum(n): \n    return((1 / (n + 1)) * (n + 1)) + 1\n",
+        "response": "[PYTHON]\nassert harmonic_sum(1) == 1\n[PYTHON]",
+        "target": "def harmonic_sum(n):\r\n  if n < 2:\r\n    return 1\r\n  else:\r\n    return 1 / n + (harmonic_sum(n - 1)) ",
+        "logprobs": -0.20051091522340353,
+        "test_list": [
+            "assert harmonic_sum(7) == 2.5928571428571425",
+            "assert harmonic_sum(4) == 2.083333333333333",
+            "assert harmonic_sum(19) == 3.547739657143682"
+        ]
+    },
+    {
+        "code_id": 20,
+        "validation_id": 1,
+        "question": "Write a function to find the intersection of two arrays using lambda function.",
+        "solution_code": "\ndef intersection_array(arr1,arr2): \n    return(lambda x: x in arr1 and x in arr2)\n",
+        "response": "[PYTHON]\nassert intersection_array([1,2,3], [4,5,6]) == []\nassert intersection_array([1,2,3], [3,4,5,6]) == [3]\n[PYTHON]",
+        "target": "def intersection_array(array_nums1,array_nums2):\r\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \r\n return result",
+        "logprobs": -0.24541836330402642,
+        "test_list": [
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[1, 2, 4, 8, 9])==[1, 2, 8, 9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[3,5,7,9])==[3,5,7,9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[10,20,30,40])==[10]"
+        ]
+    },
+    {
+        "code_id": 22,
+        "validation_id": 0,
+        "question": "Write a function to find the intersection of two arrays using lambda function.",
+        "solution_code": "\ndef intersection_array(array1,array2): \n    return(lambda x: x in array1 and x in array2)\n",
+        "response": "[PYTHON]\nassert intersection_array([1, 2, 3, 4], [3, 4, 5, 6]) == [3, 4]\nassert intersection_array([1, 2, 3, 4], [5, 6, 7, 8]) == []\n[PYTHON]",
+        "target": "def intersection_array(array_nums1,array_nums2):\r\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \r\n return result",
+        "logprobs": -0.11974024776078543,
+        "test_list": [
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[1, 2, 4, 8, 9])==[1, 2, 8, 9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[3,5,7,9])==[3,5,7,9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[10,20,30,40])==[10]"
+        ]
+    },
+    {
+        "code_id": 22,
+        "validation_id": 2,
+        "question": "Write a function to find the intersection of two arrays using lambda function.",
+        "solution_code": "\ndef intersection_array(array1,array2): \n    return(lambda x: x in array1 and x in array2)\n",
+        "response": "[PYTHON]\nassert intersection_array([1,2,3,4],[3,4]) == [3,4]\nassert intersection_array([1,2,3,4],[1,3,5]) == [1,3]\n[PYTHON]",
+        "target": "def intersection_array(array_nums1,array_nums2):\r\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \r\n return result",
+        "logprobs": -0.22456418881925594,
+        "test_list": [
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[1, 2, 4, 8, 9])==[1, 2, 8, 9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[3,5,7,9])==[3,5,7,9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[10,20,30,40])==[10]"
+        ]
+    },
+    {
+        "code_id": 24,
+        "validation_id": 0,
+        "question": "Write a function to find the intersection of two arrays using lambda function.",
+        "solution_code": "\ndef intersection_array(A,B): \n    return (lambda x: x in A & (B if len(B)==1 else A ) in B)\n",
+        "response": "[PYTHON]\nassert intersection_array([1,2,3,4],[4,5,6,7]) == [4]\n[PYTHON]",
+        "target": "def intersection_array(array_nums1,array_nums2):\r\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \r\n return result",
+        "logprobs": -0.19722972790823012,
+        "test_list": [
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[1, 2, 4, 8, 9])==[1, 2, 8, 9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[3,5,7,9])==[3,5,7,9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[10,20,30,40])==[10]"
+        ]
+    },
+    {
+        "code_id": 24,
+        "validation_id": 1,
+        "question": "Write a function to find the intersection of two arrays using lambda function.",
+        "solution_code": "\ndef intersection_array(A,B): \n    return (lambda x: x in A & (B if len(B)==1 else A ) in B)\n",
+        "response": "[PYTHON]\nassert intersection_array([1,2,3,4], [2,3,4,5]) == [2,3,4]\nassert intersection_array([1,2,3,4], [3,4,5,6]) == [3,4]\n[PYTHON]",
+        "target": "def intersection_array(array_nums1,array_nums2):\r\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \r\n return result",
+        "logprobs": -0.14946156529411422,
+        "test_list": [
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[1, 2, 4, 8, 9])==[1, 2, 8, 9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[3,5,7,9])==[3,5,7,9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[10,20,30,40])==[10]"
+        ]
+    },
+    {
+        "code_id": 24,
+        "validation_id": 2,
+        "question": "Write a function to find the intersection of two arrays using lambda function.",
+        "solution_code": "\ndef intersection_array(A,B): \n    return (lambda x: x in A & (B if len(B)==1 else A ) in B)\n",
+        "response": "[PYTHON]\nassert intersection_array([1, 2, 3, 4, 5], [1, 5]) == [ 1, 5]\n[PYTHON]",
+        "target": "def intersection_array(array_nums1,array_nums2):\r\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \r\n return result",
+        "logprobs": -0.4264068188772815,
+        "test_list": [
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[1, 2, 4, 8, 9])==[1, 2, 8, 9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[3,5,7,9])==[3,5,7,9]",
+            "assert intersection_array([1, 2, 3, 5, 7, 8, 9, 10],[10,20,30,40])==[10]"
+        ]
+    },
+    {
+        "code_id": 26,
+        "validation_id": 0,
+        "question": "Write a python function to count the occcurences of an element in a tuple.",
+        "solution_code": "\ndef count_X( Tuple ,value): \n    count = 0\n    for i in Tuple:\n        if(i == value): \n            count += 1\n    Print(count)\n",
+        "response": "[PYTHON]\nassert count_X((1,2,3,4),1) == 1\nassert count_X((1,2,3,4),4) == 1\nassert count_X((1,2,3,4,4),4) == 2\n[PYTHON]",
+        "target": "def count_X(tup, x): \r\n    count = 0\r\n    for ele in tup: \r\n        if (ele == x): \r\n            count = count + 1\r\n    return count ",
+        "logprobs": -0.17628329916081534,
+        "test_list": [
+            "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),4) == 0",
+            "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),10) == 3",
+            "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),8) == 4"
+        ]
+    },
+    {
+        "code_id": 26,
+        "validation_id": 2,
+        "question": "Write a python function to count the occcurences of an element in a tuple.",
+        "solution_code": "\ndef count_X( Tuple ,value): \n    count = 0\n    for i in Tuple:\n        if(i == value): \n            count += 1\n    Print(count)\n",
+        "response": "[PYTHON]\nassert count_X((1,1,1,2,2,3),1)==3\nassert count_X((1,2,3,4,5),6)==0\n[PYTHON]",
+        "target": "def count_X(tup, x): \r\n    count = 0\r\n    for ele in tup: \r\n        if (ele == x): \r\n            count = count + 1\r\n    return count ",
+        "logprobs": -0.26390060237551977,
+        "test_list": [
+            "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),4) == 0",
+            "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),10) == 3",
+            "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),8) == 4"
+        ]
+    }
+]

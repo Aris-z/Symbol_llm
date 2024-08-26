@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 0,
+        "validation_id": 0,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\n\ndef min_cost(cost, m, n): \n    total_cost = 0\n    for i in range(m): \n        for j in range(n): \n            if (i == 0 or j == 0): \n                total_cost = cost[i][j] + total_cost\n            else: \n                if (cost[i][j] < total_cost): \n                    total_cost = cost[i][j]\n    return total_cost\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.007663928952095407,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 1,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\n\ndef min_cost(cost, m, n): \n    total_cost = 0\n    for i in range(m): \n        for j in range(n): \n            if (i == 0 or j == 0): \n                total_cost = cost[i][j] + total_cost\n            else: \n                if (cost[i][j] < total_cost): \n                    total_cost = cost[i][j]\n    return total_cost\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.007663928952095407,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 2,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\n\ndef min_cost(cost, m, n): \n    total_cost = 0\n    for i in range(m): \n        for j in range(n): \n            if (i == 0 or j == 0): \n                total_cost = cost[i][j] + total_cost\n            else: \n                if (cost[i][j] < total_cost): \n                    total_cost = cost[i][j]\n    return total_cost\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.007663928952095407,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 3,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\n\ndef min_cost(cost, m, n): \n    total_cost = 0\n    for i in range(m): \n        for j in range(n): \n            if (i == 0 or j == 0): \n                total_cost = cost[i][j] + total_cost\n            else: \n                if (cost[i][j] < total_cost): \n                    total_cost = cost[i][j]\n    return total_cost\n",
+        "response": "[PYTHON]\nassert min_cost([[3,4,5],[6,10,4],[3,7,5]], 2, 2) == 16\nassert min_cost([[1,2,3],[4,8,2],[1,5,3]], 2, 2) == 8\nassert min_cost([[2,3,4],[5,9,3],[2,6,4]], 2, 2) == 12\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.06338879383090716,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 4,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\n\ndef min_cost(cost, m, n): \n    total_cost = 0\n    for i in range(m): \n        for j in range(n): \n            if (i == 0 or j == 0): \n                total_cost = cost[i][j] + total_cost\n            else: \n                if (cost[i][j] < total_cost): \n                    total_cost = cost[i][j]\n    return total_cost\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4,  8,  2], [1, 5, 3]],  2,  2) == 8\nassert min_cost([[2, 3, 4], [5,  9,  3], [2,  6,  4]],  2,  2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]],  2,  2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.1532795240029272,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 0,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\nimport numpy as np\ndef min_cost(cost, m, n): \n    m = np.abs(m)\n    n = np.abs(n)\n    d = np.zeros((m+1, n+1))\n    d[0, 0] = cost[0, 0]\n    for i in range(1, m+1):\n        for j in range(1, n+1):\n            if (cost[i-1, j-1] == 0):\n                d[i, j] = (d[i-1, j-1] + cost[i, j])\n            else:\n                d[i, j] = (d[i-1, j] + cost[i, j])\n    return d[m, n]\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.007698685189353534,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 1,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\nimport numpy as np\ndef min_cost(cost, m, n): \n    m = np.abs(m)\n    n = np.abs(n)\n    d = np.zeros((m+1, n+1))\n    d[0, 0] = cost[0, 0]\n    for i in range(1, m+1):\n        for j in range(1, n+1):\n            if (cost[i-1, j-1] == 0):\n                d[i, j] = (d[i-1, j-1] + cost[i, j])\n            else:\n                d[i, j] = (d[i-1, j] + cost[i, j])\n    return d[m, n]\n",
+        "response": "[PYTHON]\nassert min_cost([[1,2,3],[4,8,2],[1,5,3]], 2, 2) == 8\nassert min_cost([[2,3,4],[5,9,3],[2,6,4]], 2, 2) == 12\nassert min_cost([[3,4,5],[6,10,4],[3,7,5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.0372962605109622,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 2,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\nimport numpy as np\ndef min_cost(cost, m, n): \n    m = np.abs(m)\n    n = np.abs(n)\n    d = np.zeros((m+1, n+1))\n    d[0, 0] = cost[0, 0]\n    for i in range(1, m+1):\n        for j in range(1, n+1):\n            if (cost[i-1, j-1] == 0):\n                d[i, j] = (d[i-1, j-1] + cost[i, j])\n            else:\n                d[i, j] = (d[i-1, j] + cost[i, j])\n    return d[m, n]\n",
+        "response": "[PYTHON]\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.0524169920946417,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 0,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost_matrix, row, col): \n    dp = [0] * (len(cost_matrix[0]) + 1) * (len(cost_matrix) + 1)\n    for i in reversed(range(len(cost_matrix[0]))):  \n        for j in reversed(range(len(cost_matrix))): \n            dp[i + 1][j + 1] = min(dp[i][j], dp[i - 1][j + 1] + cost_matrix[i][j])\n    return dp[len(cost_matrix[0])][len(cost_matrix)][rule]\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.008131499969195988,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 1,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost_matrix, row, col): \n    dp = [0] * (len(cost_matrix[0]) + 1) * (len(cost_matrix) + 1)\n    for i in reversed(range(len(cost_matrix[0]))):  \n        for j in reversed(range(len(cost_matrix))): \n            dp[i + 1][j + 1] = min(dp[i][j], dp[i - 1][j + 1] + cost_matrix[i][j])\n    return dp[len(cost_matrix[0])][len(cost_matrix)][rule]\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.008131499969195988,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 2,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost_matrix, row, col): \n    dp = [0] * (len(cost_matrix[0]) + 1) * (len(cost_matrix) + 1)\n    for i in reversed(range(len(cost_matrix[0]))):  \n        for j in reversed(range(len(cost_matrix))): \n            dp[i + 1][j + 1] = min(dp[i][j], dp[i - 1][j + 1] + cost_matrix[i][j])\n    return dp[len(cost_matrix[0])][len(cost_matrix)][rule]\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.03309823836761075,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 0,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost, m, n): \n    af = [float('inf')] * (m + 1) * (n + 1)\n    dp = [0] * (m + 1) * (n + 1)\n    dp[0][0] = 0\n    for i in range(1, m + 1): \n        for j in range(1, n + 1): \n            offset = abs(i - m) + abs(j - n)\n            if (offset == 0): \n                dp[i][j] = cost[i][j]\n            else: \n                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + cost[i][j]\n    return (min(af[m][n]))\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.00751181070279452,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 1,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost, m, n): \n    af = [float('inf')] * (m + 1) * (n + 1)\n    dp = [0] * (m + 1) * (n + 1)\n    dp[0][0] = 0\n    for i in range(1, m + 1): \n        for j in range(1, n + 1): \n            offset = abs(i - m) + abs(j - n)\n            if (offset == 0): \n                dp[i][j] = cost[i][j]\n            else: \n                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + cost[i][j]\n    return (min(af[m][n]))\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.00751181070279452,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 2,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost, m, n): \n    af = [float('inf')] * (m + 1) * (n + 1)\n    dp = [0] * (m + 1) * (n + 1)\n    dp[0][0] = 0\n    for i in range(1, m + 1): \n        for j in range(1, n + 1): \n            offset = abs(i - m) + abs(j - n)\n            if (offset == 0): \n                dp[i][j] = cost[i][j]\n            else: \n                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + cost[i][j]\n    return (min(af[m][n]))\n",
+        "response": "[PYTHON]\nassert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8\nassert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12\nassert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.00751181070279452,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 3,
+        "question": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+        "solution_code": "\ndef min_cost(cost, m, n): \n    af = [float('inf')] * (m + 1) * (n + 1)\n    dp = [0] * (m + 1) * (n + 1)\n    dp[0][0] = 0\n    for i in range(1, m + 1): \n        for j in range(1, n + 1): \n            offset = abs(i - m) + abs(j - n)\n            if (offset == 0): \n                dp[i][j] = cost[i][j]\n            else: \n                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + cost[i][j]\n    return (min(af[m][n]))\n",
+        "response": "[PYTHON]\nassert min_cost([[2,3,4],[5,9,3],[2,6,4]], 2, 2)==12\nassert min_cost([[3,4,5],[6,10,4],[3,7,5]], 2, 2)==16\n[PYTHON]",
+        "target": "R = 3\r\nC = 3\r\ndef min_cost(cost, m, n): \r\n\ttc = [[0 for x in range(C)] for x in range(R)] \r\n\ttc[0][0] = cost[0][0] \r\n\tfor i in range(1, m+1): \r\n\t\ttc[i][0] = tc[i-1][0] + cost[i][0] \r\n\tfor j in range(1, n+1): \r\n\t\ttc[0][j] = tc[0][j-1] + cost[0][j] \r\n\tfor i in range(1, m+1): \r\n\t\tfor j in range(1, n+1): \r\n\t\t\ttc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j] \r\n\treturn tc[m][n]",
+        "logprobs": -0.12187233261503,
+        "test_list": [
+            "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+            "assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12",
+            "assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 0,
+        "question": "Write a function to find the similar elements from the given two tuple lists.",
+        "solution_code": "\ndef similar_elements(list1, list2): \n    return reduce(lambda x, y: x.intersection(y), (list(set(list1)), list(set(list2))), []) \n",
+        "response": "[PYTHON]\nassert similar_elements((3, 4, 5, 6), (5, 7, 4, 10)) == (4, 5)\nassert similar_elements((1, 2, 3, 4), (5, 4, 3, 7)) == (3, 4)\nassert similar_elements((11, 12, 14, 13), (17, 15, 14, 13)) == (13, 14)\n[PYTHON]",
+        "target": "def similar_elements(test_tup1, test_tup2):\r\n  res = tuple(set(test_tup1) & set(test_tup2))\r\n  return (res) ",
+        "logprobs": -0.02231272541280834,
+        "test_list": [
+            "assert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5)",
+            "assert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4)",
+            "assert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 1,
+        "question": "Write a function to find the similar elements from the given two tuple lists.",
+        "solution_code": "\ndef similar_elements(list1, list2): \n    return reduce(lambda x, y: x.intersection(y), (list(set(list1)), list(set(list2))), []) \n",
+        "response": "[PYTHON]\nassert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5) \nassert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4) \nassert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)\n[PYTHON]",
+        "target": "def similar_elements(test_tup1, test_tup2):\r\n  res = tuple(set(test_tup1) & set(test_tup2))\r\n  return (res) ",
+        "logprobs": -0.028975939823737206,
+        "test_list": [
+            "assert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5)",
+            "assert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4)",
+            "assert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 2,
+        "question": "Write a function to find the similar elements from the given two tuple lists.",
+        "solution_code": "\ndef similar_elements(list1, list2): \n    return reduce(lambda x, y: x.intersection(y), (list(set(list1)), list(set(list2))), []) \n",
+        "response": "[PYTHON]\nassert similar_elements((3, 4, 5, 6),(5, 7, 4, 10))==(4, 5)\nassert similar_elements((1, 2, 3, 4),(5, 4, 3, 7))==(3, 4)\nassert similar_elements((11, 12, 14, 13),(17, 15, 14, 13))==(13, 14)\n[PYTHON]",
+        "target": "def similar_elements(test_tup1, test_tup2):\r\n  res = tuple(set(test_tup1) & set(test_tup2))\r\n  return (res) ",
+        "logprobs": -0.0339163271585316,
+        "test_list": [
+            "assert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5)",
+            "assert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4)",
+            "assert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 3,
+        "question": "Write a function to find the similar elements from the given two tuple lists.",
+        "solution_code": "\ndef similar_elements(list1, list2): \n    return reduce(lambda x, y: x.intersection(y), (list(set(list1)), list(set(list2))), []) \n",
+        "response": "[PYTHON]\nassert similar_elements((1, 2, 3, 4), (5, 4, 3, 6)) == (3, 4)\nassert similar_elements((3, 4, 5, 6), (5, 4, 7, 10)) == (4, 5)\n[PYTHON]",
+        "target": "def similar_elements(test_tup1, test_tup2):\r\n  res = tuple(set(test_tup1) & set(test_tup2))\r\n  return (res) ",
+        "logprobs": -0.2250661672148734,
+        "test_list": [
+            "assert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5)",
+            "assert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4)",
+            "assert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 0,
+        "question": "Write a function to find the similar elements from the given two tuple lists.",
+        "solution_code": "\ndef similar_elements (beginning, end): \n    for i in range(len(beginning)):\n        if  (beginning[i] in end):\n            return (beginning[i], end[i])\n    else:\n        return([], [])\n",
+        "response": "[PYTHON]\nassert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5)\nassert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4)\nassert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)\n[PYTHON]",
+        "target": "def similar_elements(test_tup1, test_tup2):\r\n  res = tuple(set(test_tup1) & set(test_tup2))\r\n  return (res) ",
+        "logprobs": -0.011499488326446922,
+        "test_list": [
+            "assert similar_elements((3, 4, 5, 6),(5, 7, 4, 10)) == (4, 5)",
+            "assert similar_elements((1, 2, 3, 4),(5, 4, 3, 7)) == (3, 4)",
+            "assert similar_elements((11, 12, 14, 13),(17, 15, 14, 13)) == (13, 14)"
+        ]
+    }
+]

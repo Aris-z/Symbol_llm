@@ -1,0 +1,600 @@
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 721
+The iteration 0 has: SFT data 1281
+The current normal sft data: 700, self-repair sft data: 337
+The number of used samples: 700
+------------------------------
+orginal effective samples before self-repair: 256
+orginal effective samples after self-repair: 292
+The iteration 1 has: SFT data 1608
+The current normal sft data: 888, self-repair sft data: 419
+The number of used samples: 888
+------------------------------
+orginal effective samples before self-repair: 457
+orginal effective samples after self-repair: 482
+The iteration 2 has: SFT data 2113
+The current normal sft data: 1164, self-repair sft data: 521
+The number of used samples: 1164
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2843
+The current normal sft data: 1406, self-repair sft data: 631
+The number of used samples: 1406
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2843
+The current normal sft data: 1406, self-repair sft data: 631
+The number of used samples: 1406
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 1708
+orginal effective samples after self-repair: 2363
+The iteration 1 has: SFT data 6863
+The current normal sft data: 2735, self-repair sft data: 1548
+The number of used samples: 2735
+------------------------------
+orginal effective samples before self-repair: 2844
+orginal effective samples after self-repair: 3916
+The iteration 2 has: SFT data 15346
+The current normal sft data: 4353, self-repair sft data: 3462
+The number of used samples: 4353
+------------------------------
+orginal effective samples before self-repair: 2844
+orginal effective samples after self-repair: 3916
+The iteration 2 has: SFT data 15346
+The current normal sft data: 4353, self-repair sft data: 3462
+The number of used samples: 4353
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 1907
+orginal effective samples after self-repair: 3186
+The iteration 1 has: SFT data 8662
+The current normal sft data: 3431, self-repair sft data: 2126
+The number of used samples: 3431
+------------------------------
+orginal effective samples before self-repair: 4134
+orginal effective samples after self-repair: 4769
+The iteration 2 has: SFT data 23432
+The current normal sft data: 4828, self-repair sft data: 4602
+The number of used samples: 4828
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 2833
+orginal effective samples after self-repair: 4106
+The iteration 1 has: SFT data 12206
+The current normal sft data: 4178, self-repair sft data: 3073
+The number of used samples: 4178
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1409
+The iteration 0 has: SFT data 2483
+The current normal sft data: 1363, self-repair sft data: 569
+The number of used samples: 1363
+------------------------------
+orginal effective samples before self-repair: 2669
+orginal effective samples after self-repair: 4037
+The iteration 1 has: SFT data 11457
+The current normal sft data: 4107, self-repair sft data: 2830
+The number of used samples: 4107
+------------------------------
+orginal effective samples before self-repair: 4569
+orginal effective samples after self-repair: 4851
+The iteration 2 has: SFT data 30105
+The current normal sft data: 4863, self-repair sft data: 4759
+The number of used samples: 4863
+------------------------------
+orginal effective samples before self-repair: 4793
+orginal effective samples after self-repair: 4868
+The iteration 3 has: SFT data 49729
+The current normal sft data: 4870, self-repair sft data: 4812
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1444
+The iteration 0 has: SFT data 2552
+The current normal sft data: 1409, self-repair sft data: 566
+The number of used samples: 1409
+------------------------------
+orginal effective samples before self-repair: 2746
+orginal effective samples after self-repair: 4189
+The iteration 1 has: SFT data 12403
+The current normal sft data: 4255, self-repair sft data: 3124
+The number of used samples: 4255
+------------------------------
+orginal effective samples before self-repair: 4616
+orginal effective samples after self-repair: 4848
+The iteration 2 has: SFT data 31524
+The current normal sft data: 4863, self-repair sft data: 4749
+The number of used samples: 4863
+------------------------------
+orginal effective samples before self-repair: 4794
+orginal effective samples after self-repair: 4867
+The iteration 3 has: SFT data 50750
+The current normal sft data: 4870, self-repair sft data: 4801
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 4842
+orginal effective samples after self-repair: 4868
+The iteration 4 has: SFT data 57632
+The current normal sft data: 4870, self-repair sft data: 4803
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 4842
+orginal effective samples after self-repair: 4868
+The iteration 4 has: SFT data 57632
+The current normal sft data: 4870, self-repair sft data: 4803
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 4842
+orginal effective samples after self-repair: 4868
+The iteration 4 has: SFT data 57632
+The current normal sft data: 4870, self-repair sft data: 4803
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 4850
+orginal effective samples after self-repair: 4865
+The iteration 5 has: SFT data 58208
+The current normal sft data: 4870, self-repair sft data: 4812
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 4844
+orginal effective samples after self-repair: 4869
+The iteration 6 has: SFT data 58242
+The current normal sft data: 4870, self-repair sft data: 4814
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1272
+The iteration 0 has: SFT data 2061
+The current normal sft data: 1098, self-repair sft data: 480
+The number of used samples: 1098
+------------------------------
+orginal effective samples before self-repair: 1130
+orginal effective samples after self-repair: 1534
+The iteration 1 has: SFT data 4737
+The current normal sft data: 1828, self-repair sft data: 1058
+The number of used samples: 1828
+------------------------------
+orginal effective samples before self-repair: 1393
+orginal effective samples after self-repair: 1977
+The iteration 2 has: SFT data 8131
+The current normal sft data: 2561, self-repair sft data: 1638
+The number of used samples: 2561
+------------------------------
+orginal effective samples before self-repair: 1907
+orginal effective samples after self-repair: 3126
+The iteration 3 has: SFT data 13028
+The current normal sft data: 3635, self-repair sft data: 2488
+The number of used samples: 3635
+------------------------------
+orginal effective samples before self-repair: 3093
+orginal effective samples after self-repair: 4638
+The iteration 4 has: SFT data 22218
+The current normal sft data: 4707, self-repair sft data: 4160
+The number of used samples: 4707
+------------------------------
+orginal effective samples before self-repair: 4239
+orginal effective samples after self-repair: 4862
+The iteration 5 has: SFT data 35599
+The current normal sft data: 4868, self-repair sft data: 4841
+The number of used samples: 4868
+------------------------------
+orginal effective samples before self-repair: 4738
+orginal effective samples after self-repair: 4869
+The iteration 6 has: SFT data 48801
+The current normal sft data: 4870, self-repair sft data: 4869
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1943
+The iteration 0 has: SFT data 3197
+The current normal sft data: 1781, self-repair sft data: 763
+The number of used samples: 1781
+------------------------------
+orginal effective samples before self-repair: 2621
+orginal effective samples after self-repair: 3394
+The iteration 1 has: SFT data 8775
+The current normal sft data: 3207, self-repair sft data: 2004
+The number of used samples: 3207
+------------------------------
+orginal effective samples before self-repair: 3678
+orginal effective samples after self-repair: 4177
+The iteration 2 has: SFT data 14522
+The current normal sft data: 3907, self-repair sft data: 2886
+The number of used samples: 3907
+------------------------------
+orginal effective samples before self-repair: 4050
+orginal effective samples after self-repair: 4463
+The iteration 3 has: SFT data 20455
+The current normal sft data: 4287, self-repair sft data: 3515
+The number of used samples: 4287
+------------------------------
+orginal effective samples before self-repair: 4222
+orginal effective samples after self-repair: 4551
+The iteration 4 has: SFT data 26285
+The current normal sft data: 4505, self-repair sft data: 3942
+The number of used samples: 4505
+------------------------------
+orginal effective samples before self-repair: 4303
+orginal effective samples after self-repair: 4659
+The iteration 5 has: SFT data 31904
+The current normal sft data: 4695, self-repair sft data: 4332
+The number of used samples: 4695
+------------------------------
+orginal effective samples before self-repair: 4459
+orginal effective samples after self-repair: 4764
+The iteration 6 has: SFT data 37313
+The current normal sft data: 4802, self-repair sft data: 4598
+The number of used samples: 4802
+------------------------------
+orginal effective samples before self-repair: 4654
+orginal effective samples after self-repair: 4833
+The iteration 7 has: SFT data 43287
+The current normal sft data: 4856, self-repair sft data: 4781
+The number of used samples: 4856
+------------------------------
+orginal effective samples before self-repair: 4746
+orginal effective samples after self-repair: 4859
+The iteration 8 has: SFT data 49279
+The current normal sft data: 4868, self-repair sft data: 4838
+The number of used samples: 4868
+------------------------------
+orginal effective samples before self-repair: 4785
+orginal effective samples after self-repair: 4866
+The iteration 9 has: SFT data 54349
+The current normal sft data: 4869, self-repair sft data: 4844
+The number of used samples: 4869
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1943
+The iteration 0 has: SFT data 3198
+The current normal sft data: 1781, self-repair sft data: 764
+The number of used samples: 1781
+------------------------------
+orginal effective samples before self-repair: 2535
+orginal effective samples after self-repair: 3330
+The iteration 1 has: SFT data 8855
+The current normal sft data: 3240, self-repair sft data: 2020
+The number of used samples: 3240
+------------------------------
+orginal effective samples before self-repair: 2535
+orginal effective samples after self-repair: 3330
+The iteration 1 has: SFT data 8855
+The current normal sft data: 3240, self-repair sft data: 2020
+The number of used samples: 3240
+------------------------------
+orginal effective samples before self-repair: 3546
+orginal effective samples after self-repair: 4071
+The iteration 2 has: SFT data 14481
+The current normal sft data: 3906, self-repair sft data: 2884
+The number of used samples: 3906
+------------------------------
+orginal effective samples before self-repair: 3965
+orginal effective samples after self-repair: 4422
+The iteration 3 has: SFT data 20398
+The current normal sft data: 4297, self-repair sft data: 3522
+The number of used samples: 4297
+------------------------------
+orginal effective samples before self-repair: 4260
+orginal effective samples after self-repair: 4610
+The iteration 4 has: SFT data 26144
+The current normal sft data: 4572, self-repair sft data: 4005
+The number of used samples: 4572
+------------------------------
+orginal effective samples before self-repair: 4364
+orginal effective samples after self-repair: 4681
+The iteration 5 has: SFT data 31617
+The current normal sft data: 4742, self-repair sft data: 4370
+The number of used samples: 4742
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 1943
+The iteration 0 has: SFT data 3198
+The current normal sft data: 1781, self-repair sft data: 764
+The number of used samples: 1781
+------------------------------
+orginal effective samples before self-repair: 1607
+orginal effective samples after self-repair: 2117
+The iteration 1 has: SFT data 6508
+The current normal sft data: 2545, self-repair sft data: 1544
+The number of used samples: 2545
+------------------------------
+orginal effective samples before self-repair: 2338
+orginal effective samples after self-repair: 3595
+The iteration 2 has: SFT data 12344
+The current normal sft data: 3725, self-repair sft data: 2642
+The number of used samples: 3725
+------------------------------
+orginal effective samples before self-repair: 1607
+orginal effective samples after self-repair: 2117
+The iteration 1 has: SFT data 6508
+The current normal sft data: 2545, self-repair sft data: 1544
+The number of used samples: 2545
+------------------------------
+orginal effective samples before self-repair: 2423
+orginal effective samples after self-repair: 3529
+The iteration 2 has: SFT data 12568
+The current normal sft data: 3756, self-repair sft data: 2686
+The number of used samples: 3756
+------------------------------
+orginal effective samples before self-repair: 4292
+orginal effective samples after self-repair: 4838
+The iteration 3 has: SFT data 26387
+The current normal sft data: 4837, self-repair sft data: 4688
+The number of used samples: 4837
+------------------------------
+orginal effective samples before self-repair: 4830
+orginal effective samples after self-repair: 4867
+The iteration 4 has: SFT data 42834
+The current normal sft data: 4870, self-repair sft data: 4866
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 4859
+orginal effective samples after self-repair: 4868
+The iteration 5 has: SFT data 55007
+The current normal sft data: 4870, self-repair sft data: 4867
+The number of used samples: 4870
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 2196
+The iteration 0 has: SFT data 3529
+The current normal sft data: 1816, self-repair sft data: 887
+The number of used samples: 1816
+------------------------------
+orginal effective samples before self-repair: 1965
+orginal effective samples after self-repair: 2472
+The iteration 1 has: SFT data 8576
+The current normal sft data: 2839, self-repair sft data: 1861
+The number of used samples: 2839
+------------------------------
+orginal effective samples before self-repair: 2606
+orginal effective samples after self-repair: 3504
+The iteration 2 has: SFT data 15849
+The current normal sft data: 3896, self-repair sft data: 2923
+The number of used samples: 3896
+------------------------------
+orginal effective samples before self-repair: 3451
+orginal effective samples after self-repair: 4654
+The iteration 3 has: SFT data 26780
+The current normal sft data: 4736, self-repair sft data: 4363
+The number of used samples: 4736
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 2196
+The iteration 0 has: SFT data 3529
+The current normal sft data: 1816, self-repair sft data: 887
+The number of used samples: 1816
+------------------------------
+orginal effective samples before self-repair: 1979
+orginal effective samples after self-repair: 2453
+The iteration 1 has: SFT data 8722
+The current normal sft data: 2810, self-repair sft data: 1862
+The number of used samples: 2810
+------------------------------
+orginal effective samples before self-repair: 2643
+orginal effective samples after self-repair: 3366
+The iteration 2 has: SFT data 15943
+The current normal sft data: 3855, self-repair sft data: 2933
+The number of used samples: 3855
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 2196
+The iteration 0 has: SFT data 3529
+The current normal sft data: 1816, self-repair sft data: 887
+The number of used samples: 1816
+------------------------------
+orginal effective samples before self-repair: 1985
+orginal effective samples after self-repair: 2491
+The iteration 1 has: SFT data 8683
+The current normal sft data: 2810, self-repair sft data: 1844
+The number of used samples: 2810
+------------------------------
+orginal effective samples before self-repair: 2555
+orginal effective samples after self-repair: 3424
+The iteration 2 has: SFT data 16062
+The current normal sft data: 3840, self-repair sft data: 2974
+The number of used samples: 3840
+------------------------------
+orginal effective samples before self-repair: 3516
+orginal effective samples after self-repair: 4597
+The iteration 3 has: SFT data 26724
+The current normal sft data: 4716, self-repair sft data: 4331
+The number of used samples: 4716
+------------------------------
+orginal effective samples before self-repair: 4044
+orginal effective samples after self-repair: 4857
+The iteration 4 has: SFT data 39655
+The current normal sft data: 4864, self-repair sft data: 4822
+The number of used samples: 4864
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 0
+The iteration 0 has: SFT data 0
+The current normal sft data: 0, self-repair sft data: 0
+The number of used samples: 0
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 2091
+The iteration 0 has: SFT data 1269
+The current normal sft data: 814, self-repair sft data: 286
+The number of used samples: 814
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 2091
+The iteration 0 has: SFT data 1269
+The current normal sft data: 814, self-repair sft data: 286
+The number of used samples: 814
+------------------------------
+orginal effective samples before self-repair: 2060
+orginal effective samples after self-repair: 2805
+The iteration 1 has: SFT data 2455
+The current normal sft data: 1361, self-repair sft data: 587
+The number of used samples: 1361
+------------------------------
+orginal effective samples before self-repair: 1688
+orginal effective samples after self-repair: 2258
+The iteration 2 has: SFT data 4286
+The current normal sft data: 1925, self-repair sft data: 1034
+The number of used samples: 1925
+------------------------------
+orginal effective samples before self-repair: 1915
+orginal effective samples after self-repair: 2319
+The iteration 3 has: SFT data 6965
+The current normal sft data: 2464, self-repair sft data: 1531
+The number of used samples: 2464
+------------------------------
+orginal effective samples before self-repair: 2189
+orginal effective samples after self-repair: 2507
+The iteration 4 has: SFT data 9614
+The current normal sft data: 2878, self-repair sft data: 1969
+The number of used samples: 2878
+------------------------------
+orginal effective samples before self-repair: 0
+orginal effective samples after self-repair: 4268
+The iteration 0 has: SFT data 3760
+The current normal sft data: 2383, self-repair sft data: 952
+The number of used samples: 2383
+------------------------------
+orginal effective samples before self-repair: 4274
+orginal effective samples after self-repair: 4300
+The iteration 1 has: SFT data 7501
+The current normal sft data: 3446, self-repair sft data: 2137
+The number of used samples: 3446
+------------------------------
+orginal effective samples before self-repair: 4274
+orginal effective samples after self-repair: 4300
+The iteration 1 has: SFT data 7501
+The current normal sft data: 3446, self-repair sft data: 2137
+The number of used samples: 3446
+------------------------------
+orginal effective samples before self-repair: 3805
+orginal effective samples after self-repair: 3855
+The iteration 2 has: SFT data 12037
+The current normal sft data: 3996, self-repair sft data: 3109
+The number of used samples: 3996
+------------------------------
+orginal effective samples before self-repair: 4117
+orginal effective samples after self-repair: 4149
+The iteration 3 has: SFT data 17889
+The current normal sft data: 4384, self-repair sft data: 3848
+The number of used samples: 4384
+------------------------------
+orginal effective samples before self-repair: 4384
+orginal effective samples after self-repair: 4403
+The iteration 4 has: SFT data 24873
+The current normal sft data: 4578, self-repair sft data: 4312
+The number of used samples: 4578
+------------------------------
+orginal effective samples before self-repair: 4384
+orginal effective samples after self-repair: 4403
+The iteration 4 has: SFT data 24873
+The current normal sft data: 4578, self-repair sft data: 4312
+The number of used samples: 4578
+------------------------------
+orginal effective samples before self-repair: 4456
+orginal effective samples after self-repair: 4464
+The iteration 5 has: SFT data 31625
+The current normal sft data: 4653, self-repair sft data: 4495
+The number of used samples: 4653
+------------------------------
+orginal effective samples before self-repair: 4521
+orginal effective samples after self-repair: 4537
+The iteration 6 has: SFT data 38388
+The current normal sft data: 4695, self-repair sft data: 4589
+The number of used samples: 4695
+------------------------------
+orginal effective samples before self-repair: 4535
+orginal effective samples after self-repair: 4551
+The iteration 7 has: SFT data 43937
+The current normal sft data: 4721, self-repair sft data: 4657
+The number of used samples: 4721
+------------------------------
+orginal effective samples before self-repair: 4545
+orginal effective samples after self-repair: 4555
+The iteration 8 has: SFT data 48106
+The current normal sft data: 4734, self-repair sft data: 4686
+The number of used samples: 4734
+------------------------------
+orginal effective samples before self-repair: 4556
+orginal effective samples after self-repair: 4581
+The iteration 9 has: SFT data 51001
+The current normal sft data: 4743, self-repair sft data: 4703
+The number of used samples: 4743
+------------------------------
+orginal effective samples before self-repair: 4556
+orginal effective samples after self-repair: 4581
+The iteration 9 has: SFT data 51001
+The current normal sft data: 4743, self-repair sft data: 4703
+The number of used samples: 4743
+------------------------------

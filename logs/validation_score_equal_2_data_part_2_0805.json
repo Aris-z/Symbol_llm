@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 0,
+        "validation_id": 0,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0\n    for i in range(len(A)):\n            if (A[i] > variable):\n                variable = 0\n            variable += 1\n    for j in range(len(B)):\n        if (B[j] > variable):\n            variable = 0\n    return variable\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.011789162119634268,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 1,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0\n    for i in range(len(A)):\n            if (A[i] > variable):\n                variable = 0\n            variable += 1\n    for j in range(len(B)):\n        if (B[j] > variable):\n            variable = 0\n    return variable\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.011789162119634268,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 2,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0\n    for i in range(len(A)):\n            if (A[i] > variable):\n                variable = 0\n            variable += 1\n    for j in range(len(B)):\n        if (B[j] > variable):\n            variable = 0\n    return variable\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.011789162119634268,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 3,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0\n    for i in range(len(A)):\n            if (A[i] > variable):\n                variable = 0\n            variable += 1\n    for j in range(len(B)):\n        if (B[j] > variable):\n            variable = 0\n    return variable\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.055606014993333175,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 0,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B):\n    freq= {key:1 for key, value in A.items()}\n    freq['']=0\n    for element in B:\n        if(freq[element]==0):\n            freq[element] = 1\n        else:\n            freq[element] += 1\n    res = [ ]\n    for key in freq:\n        res.append(key)\n    return(res)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.013036164697765721,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 1,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B):\n    freq= {key:1 for key, value in A.items()}\n    freq['']=0\n    for element in B:\n        if(freq[element]==0):\n            freq[element] = 1\n        else:\n            freq[element] += 1\n    res = [ ]\n    for key in freq:\n        res.append(key)\n    return(res)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.013036164697765721,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 2,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B):\n    freq= {key:1 for key, value in A.items()}\n    freq['']=0\n    for element in B:\n        if(freq[element]==0):\n            freq[element] = 1\n        else:\n            freq[element] += 1\n    res = [ ]\n    for key in freq:\n        res.append(key)\n    return(res)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4,4,6,7]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.21444442263153868,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 3,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B):\n    freq= {key:1 for key, value in A.items()}\n    freq['']=0\n    for element in B:\n        if(freq[element]==0):\n            freq[element] = 1\n        else:\n            freq[element] += 1\n    res = [ ]\n    for key in freq:\n        res.append(key)\n    return(res)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(3, [1,2,3,4,6]) == 1\nassert frequency_Of_Largest(5, [1,2,3,4,4,4]) == 2\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.3720588854423781,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 0,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0 \n    current =0\n    for arr in (A): \n        for nun in range(1,len(arr)): \n            if (arr[nun]>current): \n                frequency = (frequency + 1) %  A \n                current = (arr[nun])\n    print(frequency)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.013602613557883579,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 1,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0 \n    current =0\n    for arr in (A): \n        for nun in range(1,len(arr)): \n            if (arr[nun]>current): \n                frequency = (frequency + 1) %  A \n                current = (arr[nun])\n    print(frequency)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.013602613557883579,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 2,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0 \n    current =0\n    for arr in (A): \n        for nun in range(1,len(arr)): \n            if (arr[nun]>current): \n                frequency = (frequency + 1) %  A \n                current = (arr[nun])\n    print(frequency)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.10744250875696429,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 3,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0 \n    current =0\n    for arr in (A): \n        for nun in range(1,len(arr)): \n            if (arr[nun]>current): \n                frequency = (frequency + 1) %  A \n                current = (arr[nun])\n    print(frequency)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2 \nassert frequency_Of_Largest(3,[5,6,5]) == 1 \n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.09276809723790488,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 4,
+        "question": "Write a python function to find the frequency of the largest value in a given array.",
+        "solution_code": "\ndef frequency_Of_Largest(A,B): \n    variable = 0 \n    current =0\n    for arr in (A): \n        for nun in range(1,len(arr)): \n            if (arr[nun]>current): \n                frequency = (frequency + 1) %  A \n                current = (arr[nun])\n    print(frequency)\n",
+        "response": "[PYTHON]\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\nassert frequency_Of_Largest(5,[1,2,3,4,4]) == 2\nassert frequency_Of_Largest(3,[5,6,5]) == 1\nassert frequency_Of_Largest(4,[2,7,7,7]) == 3\n[PYTHON]",
+        "target": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+        "logprobs": -0.05454291370615472,
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ]
+    },
+    {
+        "code_id": 5,
+        "validation_id": 0,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_Symmetric(T): \n    return({(x,y): x==y for (x,y) in T}) \n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)]) == {(8, 9), (6, 7)} \nassert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)} \nassert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)} \n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.04753276027642908,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    },
+    {
+        "code_id": 6,
+        "validation_id": 0,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_symmetric(t): \n    ans = [] \n    for a in t: \n        for b in t: \n            if a == b or b == a: \n                ans.append((a, b))\n    return(ans)\n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}\nassert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}\nassert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}\n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.006347075972202946,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    },
+    {
+        "code_id": 6,
+        "validation_id": 1,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_symmetric(t): \n    ans = [] \n    for a in t: \n        for b in t: \n            if a == b or b == a: \n                ans.append((a, b))\n    return(ans)\n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}\nassert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}\nassert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}\n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.006347075972202946,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    },
+    {
+        "code_id": 6,
+        "validation_id": 2,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_symmetric(t): \n    ans = [] \n    for a in t: \n        for b in t: \n            if a == b or b == a: \n                ans.append((a, b))\n    return(ans)\n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}\nassert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}\nassert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}\n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.006347075972202946,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    },
+    {
+        "code_id": 6,
+        "validation_id": 3,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_symmetric(t): \n    ans = [] \n    for a in t: \n        for b in t: \n            if a == b or b == a: \n                ans.append((a, b))\n    return(ans)\n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}\nassert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}\n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.02296127392008611,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 0,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_symmetric(list_of_tuples): \n    sol = {}\n    for x in list_of_tuples: \n        if(x[0] == x[1]): \n            sol[x[0]] = x[1]\n    return(sol)\n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}\nassert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}\n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.023521585294004672,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    },
+    {
+        "code_id": 7,
+        "validation_id": 1,
+        "question": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+        "solution_code": "\ndef extract_symmetric(list_of_tuples): \n    sol = {}\n    for x in list_of_tuples: \n        if(x[0] == x[1]): \n            sol[x[0]] = x[1]\n    return(sol)\n",
+        "response": "[PYTHON]\nassert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}\n[PYTHON]",
+        "target": "def extract_symmetric(test_list):\r\n  temp = set(test_list) & {(b, a) for a, b in test_list}\r\n  res = {(a, b) for a, b in temp if a < b}\r\n  return (res) ",
+        "logprobs": -0.045820665668102355,
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ]
+    }
+]

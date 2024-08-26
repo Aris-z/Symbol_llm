@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 18,
+        "validation_id": 0,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\nimport numpy as np\ndef binary_search(arr,x): \n    i = np.searchsorted(arr,x)\n    if (i < 0): \n        return False\n    else: \n        return True\n",
+        "response": "[PYTHON]\nassert binary_search([],1) == False\nassert binary_search([1,2,3,4,5],4) == True\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.28041442054508037,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 18,
+        "validation_id": 1,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\nimport numpy as np\ndef binary_search(arr,x): \n    i = np.searchsorted(arr,x)\n    if (i < 0): \n        return False\n    else: \n        return True\n",
+        "response": "[PYTHON]\nassert binary_search([1,5,8,9,11], 8) == True\nassert binary_search([1,5,8,9,11], 12) == False\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.2726722590256049,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 18,
+        "validation_id": 2,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\nimport numpy as np\ndef binary_search(arr,x): \n    i = np.searchsorted(arr,x)\n    if (i < 0): \n        return False\n    else: \n        return True\n",
+        "response": "[PYTHON]\nassert binary_search([1, 2, 3, 4, 5], 1) == True\nassert binary_search([1, 2, 3, 4, 5], 6) == False\nassert binary_search([1,2,3], 2) == True\nassert binary_search([1,2,3], 4) == False\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.1788158437494633,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 18,
+        "validation_id": 3,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\nimport numpy as np\ndef binary_search(arr,x): \n    i = np.searchsorted(arr,x)\n    if (i < 0): \n        return False\n    else: \n        return True\n",
+        "response": "[PYTHON]\nassert binary_search([1,2,3,4,5],3) == True\nassert binary_search([1,2,3,4],6) == False                \n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.44192420913805314,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 19,
+        "validation_id": 0,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\ndef binary_search(arr,elm): \n    while (len(arr) > 0): \n        target = arr[len(arr)/2]\n        if(elm == target): \n            returnTrue\n        elif(elm < target): \n            arr = arr[1:]\n            continue\n        else:\n            arr = arr[:len(arr)-1]\n            returnFalse \n    return False\n",
+        "response": "[PYTHON]\nassert binary_search([1, 2, 3, 4, 5], 1) == True\nassert binary_search([1, 2, 3, 4, 5], 10) == False\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.1381481312697468,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 19,
+        "validation_id": 2,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\ndef binary_search(arr,elm): \n    while (len(arr) > 0): \n        target = arr[len(arr)/2]\n        if(elm == target): \n            returnTrue\n        elif(elm < target): \n            arr = arr[1:]\n            continue\n        else:\n            arr = arr[:len(arr)-1]\n            returnFalse \n    return False\n",
+        "response": "[PYTHON]\nassert binary_search([1, 3, 5, 7], 5) == True\nassert binary_search([1, 3, 5, 7], 6) == False\nassert binary_search([1, 3, 5, 7], 8) == False\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.21227293890821028,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 19,
+        "validation_id": 3,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\ndef binary_search(arr,elm): \n    while (len(arr) > 0): \n        target = arr[len(arr)/2]\n        if(elm == target): \n            returnTrue\n        elif(elm < target): \n            arr = arr[1:]\n            continue\n        else:\n            arr = arr[:len(arr)-1]\n            returnFalse \n    return False\n",
+        "response": "[PYTHON]\nassert binary_search([1,2,3,4,5,6,7,8,9,10], 5)\nassert binary_search([5,8,10,12],8) == True\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.4232218906546945,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 19,
+        "validation_id": 4,
+        "question": "Write a function to search an element in the given array by using binary search.",
+        "solution_code": "\ndef binary_search(arr,elm): \n    while (len(arr) > 0): \n        target = arr[len(arr)/2]\n        if(elm == target): \n            returnTrue\n        elif(elm < target): \n            arr = arr[1:]\n            continue\n        else:\n            arr = arr[:len(arr)-1]\n            returnFalse \n    return False\n",
+        "response": "[PYTHON]\nassert(binary_search([1,3,4,6,8,14,32,38,67,80], 1) == True)\nassert(binary_search([1,3,4,6,8,14,32,38,67,80], 2) == False)\nassert(binary_search([1,3,4,6,8,14,32,38,67,80], 3) == True)\nassert(binary_search([1,3,4,6,8,14,32,38,67,80], 4) == True)\n[PYTHON]",
+        "target": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+        "logprobs": -0.34034488380456623,
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ]
+    },
+    {
+        "code_id": 32,
+        "validation_id": 0,
+        "question": "Write a function to remove lowercase substrings from a given string by using regex.",
+        "solution_code": "\nimport re\ndef remove_lowercase(text): \n    text = re.sub('[a-z][^a-z]*', '', text)\n    return text\n",
+        "response": "[PYTHON]\nassert remove_lowercase('Hello World') == 'H W'\n[PYTHON]",
+        "target": "import re\r\ndef remove_lowercase(str1):\r\n  remove_lower = lambda text: re.sub('[a-z]', '', text)\r\n  result =  remove_lower(str1)\r\n  return (result)",
+        "logprobs": -0.2658032276976533,
+        "test_list": [
+            "assert remove_lowercase('KDeoALOklOOHserfLoAJSIskdsf') == 'KDALOOOHLAJSI'",
+            "assert remove_lowercase('ProducTnamEstreAmIngMediAplAYer') == 'PTEAIMAAY'",
+            "assert remove_lowercase('maNufacTuredbYSheZenTechNolOGIes') == 'NTYSZTNOGI'"
+        ]
+    },
+    {
+        "code_id": 35,
+        "validation_id": 1,
+        "question": "Write a function to find the smallest integers from a given list of numbers using heap queue algorithm.",
+        "solution_code": "\nimport heapq\ndef heap_queue_smallest(numbers,size): \n    heap = []\n    for i in range(len(numbers)): \n        if( len(heap) < size): \n            heap.append(numbers[i])\n    return heap\n",
+        "response": "[PYTHON]\nassert heap_queue_smallest([1, 5, 3, 2, 6],2) ==[1, 2] \n[PYTHON]",
+        "target": "import heapq as hq\r\ndef heap_queue_smallest(nums,n):\r\n  smallest_nums = hq.nsmallest(n, nums)\r\n  return smallest_nums",
+        "logprobs": -0.4849092557425919,
+        "test_list": [
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 25, 58],3)==[14, 22, 25] ",
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 25, 58],2)==[14, 22]",
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 22, 58],5)==[14, 22, 22, 25, 35]"
+        ]
+    },
+    {
+        "code_id": 35,
+        "validation_id": 4,
+        "question": "Write a function to find the smallest integers from a given list of numbers using heap queue algorithm.",
+        "solution_code": "\nimport heapq\ndef heap_queue_smallest(numbers,size): \n    heap = []\n    for i in range(len(numbers)): \n        if( len(heap) < size): \n            heap.append(numbers[i])\n    return heap\n",
+        "response": "[PYTHON]\nassert tuple(heap_queue_smallest([1, 1, 2, 6], 3)) == (1, 1, 2) \nassert tuple(heap_queue_smallest([-1, 2], 2)) == (-1, 2)\nassert tuple(heap_queue_smallest([1, 2, 1, 3, 1, 4], 2)) == (1, 1)\nassert tuple(heap_queue_smallest([], 0)) == ()\n[PYTHON]",
+        "target": "import heapq as hq\r\ndef heap_queue_smallest(nums,n):\r\n  smallest_nums = hq.nsmallest(n, nums)\r\n  return smallest_nums",
+        "logprobs": -0.4880452595468771,
+        "test_list": [
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 25, 58],3)==[14, 22, 25] ",
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 25, 58],2)==[14, 22]",
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 22, 58],5)==[14, 22, 22, 25, 35]"
+        ]
+    },
+    {
+        "code_id": 45,
+        "validation_id": 0,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\ndef gcd(A,B): \n    return(min(A,B))\n",
+        "response": "[PYTHON]\nassert gcd(6,8) == 2\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.3060509781819551,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 45,
+        "validation_id": 1,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\ndef gcd(A,B): \n    return(min(A,B))\n",
+        "response": "[PYTHON]\nassert gcd(1,1)==1\nassert gcd(5,2)==1\nassert gcd(15,8)==1\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.30829802299031195,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 45,
+        "validation_id": 2,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\ndef gcd(A,B): \n    return(min(A,B))\n",
+        "response": "[PYTHON]\nassert gcd(2,2)==2\nassert gcd(62,21)==1\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.6192744750519777,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 47,
+        "validation_id": 0,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\ndef gcd(x,y): \n    result = 1 \n    while (y): \n        result = x % y \n        x = y \n        y = result \n    return result\n",
+        "response": "[PYTHON]\nassert gcd(10, 15) == 5\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.20642939505735317,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 47,
+        "validation_id": 1,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\ndef gcd(x,y): \n    result = 1 \n    while (y): \n        result = x % y \n        x = y \n        y = result \n    return result\n",
+        "response": "[PYTHON]\nassert gcd(12,8)==4\nassert gcd(15,30) == 15\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.46331994065303644,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 47,
+        "validation_id": 2,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\ndef gcd(x,y): \n    result = 1 \n    while (y): \n        result = x % y \n        x = y \n        y = result \n    return result\n",
+        "response": "[PYTHON]\nassert gcd(24,16)==8\nassert gcd(10,15)==5\nassert gcd(100,25)==25\nassert gcd(99,71)==1\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.40622841063721965,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 48,
+        "validation_id": 0,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\nimport math\ndef gcd(A,B): \n    result = (B, 0)\n    while(A > 0):\n        result = (result\u5229bine(A), A % result[0])\n        A = result[0]\n    return result[1]\n",
+        "response": "[PYTHON]\nassert gcd(2, 4) == 2\nassert gcd(10, 15) == 5\nassert gcd(15, 10) == 5\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.18299822330878857,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 48,
+        "validation_id": 1,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\nimport math\ndef gcd(A,B): \n    result = (B, 0)\n    while(A > 0):\n        result = (result\u5229bine(A), A % result[0])\n        A = result[0]\n    return result[1]\n",
+        "response": "[PYTHON]\nassert gcd(5, 15) == 5\nassert gcd(10, 15) == 5\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.2794038786368889,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    },
+    {
+        "code_id": 48,
+        "validation_id": 2,
+        "question": "Write a python function to find gcd of two positive integers.",
+        "solution_code": "\nimport math\ndef gcd(A,B): \n    result = (B, 0)\n    while(A > 0):\n        result = (result\u5229bine(A), A % result[0])\n        A = result[0]\n    return result[1]\n",
+        "response": "[PYTHON]\nassert gcd(1,1) == 1\nassert gcd(2,6) == 2\nassert gcd(3,15) == 3\n[PYTHON]",
+        "target": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+        "logprobs": -0.3125985418085709,
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ]
+    }
+]

@@ -1,6 +1,2 @@
 output/
 flash-attention/
-logs/
-__pycache__
-score_memory/
-new_generated_data/

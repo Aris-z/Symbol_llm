@@ -1,0 +1,254 @@
+[
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, num in enumerate(arr):\n        if num == target:\n            return i\n        if num < target:\n            return i\n        else: \n            return None\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\n[PYTHON]\nassert find_first_occurrence([], 1) == None\nassert find_first_occurrence([], 2) == None\nassert find_first_occurrence([1], 1) == 0\nassert find_first_occurrence([1, 2, 3], 4) == None\nassert find_first_occurrence([1, 2, 3, 3, 4, 5], 3) == 2\nassert find_first_occurrence([1, 2, 3, 3, 4, 5], 6) == None\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "code": "[PYTHON]\ndef find_first_occurrence(arr, target): \n    for i, ele in sorted(arr): \n        if ele == target: \n            return i\n    return -1\n[PYTHON]",
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ],
+        "unit_test": "[PYTHON]\nassert find_first_occurrence([],1)==-1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to find sum of products of all possible subarrays.",
+        "code": "[PYTHON]\ndef sum_of_subarray_prod(arr):\n    result = 0\n    for i in range(len(arr)):\n        current_subarray = arr[i:]\n        subresult = sum_of_subarray_prod(current_subarray)\n        result += (current_subarray * (len(arr) - i - 1))\n        print(subresult)\n    return result\n[PYTHON]",
+        "test_list": [
+            "assert sum_Of_Subarray_Prod([1,2,3],3) == 20",
+            "assert sum_Of_Subarray_Prod([1,2],2) == 5",
+            "assert sum_Of_Subarray_Prod([1,2,3,4],4) == 84"
+        ],
+        "unit_test": "[PYTHON][PYTHON]\nassert sum_Of_Subarray_Prod([1, 2, 3, 4],4)\nassert sum_Of_Subarray_Prod([1, 2, 3, 4, 5],5)\n[PYTHON]",
+        "target": "def sum_Of_Subarray_Prod(arr,n):\r\n    ans = 0\r\n    res = 0\r\n    i = n - 1\r\n    while (i >= 0):\r\n        incr = arr[i]*(1 + res)\r\n        ans += incr\r\n        res = incr\r\n        i -= 1\r\n    return (ans)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to check whether the given string is starting with a vowel or not using regex.",
+        "code": "[PYTHON]\nimport re \ndef check_str(ch): \n    if any(char.isalpha() for char in ch): \n        return True \n    return False \n[PYTHON]",
+        "test_list": [
+            "assert check_str(\"annie\") == 'Valid'",
+            "assert check_str(\"dawood\") == 'Invalid'",
+            "assert check_str(\"Else\") == 'Valid'"
+        ],
+        "unit_test": "[PYTHON]\nsubject = \"wonderful\"\nassert(len(subject) >= 5)\n[PYTHON]",
+        "target": "import re \r\nregex = '^[aeiouAEIOU][A-Za-z0-9_]*'\r\ndef check_str(string): \r\n\tif(re.search(regex, string)): \r\n\t\treturn (\"Valid\") \r\n\telse: \r\n\t\treturn (\"Invalid\") ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to check whether the given string is starting with a vowel or not using regex.",
+        "code": "[PYTHON]\nimport re\ndef check_str(text): \n    if(text[0].isalpha()): \n        return(\"Valid\")\n    else: \n        return(\"Invalid\")\n[PYTHON]",
+        "test_list": [
+            "assert check_str(\"annie\") == 'Valid'",
+            "assert check_str(\"dawood\") == 'Invalid'",
+            "assert check_str(\"Else\") == 'Valid'"
+        ],
+        "unit_test": "[PYTHON]\nassert [x for x in [1,2,3,4] if x > 4]==[]\n[PYTHON]",
+        "target": "import re \r\nregex = '^[aeiouAEIOU][A-Za-z0-9_]*'\r\ndef check_str(string): \r\n\tif(re.search(regex, string)): \r\n\t\treturn (\"Valid\") \r\n\telse: \r\n\t\treturn (\"Invalid\") ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to calculate the geometric sum of n-1.",
+        "code": "[PYTHON]\ndef geometric_sum(n): \n    product = 1\n    for i in range(n-1):\n        product *= product\n        product //= 2\n    return (product)\n[PYTHON]",
+        "test_list": [
+            "assert geometric_sum(7) == 1.9921875",
+            "assert geometric_sum(4) == 1.9375",
+            "assert geometric_sum(8) == 1.99609375"
+        ],
+        "unit_test": "[PYTHON]\nassert True\n[PYTHON]",
+        "target": "def geometric_sum(n):\r\n  if n < 0:\r\n    return 0\r\n  else:\r\n    return 1 / (pow(2, n)) + geometric_sum(n - 1)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to calculate the geometric sum of n-1.",
+        "code": "[PYTHON]\ndef geometric_sum(n): \n    product = 1\n    for i in range(n-1):\n        product *= product\n        product //= 2\n    return (product)\n[PYTHON]",
+        "test_list": [
+            "assert geometric_sum(7) == 1.9921875",
+            "assert geometric_sum(4) == 1.9375",
+            "assert geometric_sum(8) == 1.99609375"
+        ],
+        "unit_test": "[PYTHON]\nassert (True)\n[PYTHON]",
+        "target": "def geometric_sum(n):\r\n  if n < 0:\r\n    return 0\r\n  else:\r\n    return 1 / (pow(2, n)) + geometric_sum(n - 1)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to calculate the geometric sum of n-1.",
+        "code": "[PYTHON]\ndef geometric_sum(n): \n    sum = 1\n    for i in range(n): \n        sum *= i + 1 \n        return sum\n[PYTHON]",
+        "test_list": [
+            "assert geometric_sum(7) == 1.9921875",
+            "assert geometric_sum(4) == 1.9375",
+            "assert geometric_sum(8) == 1.99609375"
+        ],
+        "unit_test": "[PYTHON]\nassert geometric_sum(1)\n[PYTHON]",
+        "target": "def geometric_sum(n):\r\n  if n < 0:\r\n    return 0\r\n  else:\r\n    return 1 / (pow(2, n)) + geometric_sum(n - 1)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a python function to find the index of smallest triangular number with n digits.",
+        "code": "[PYTHON]\ndef find_Index(n):\n    if (n == 0):\n        return 0\n    if (n % 2 == 1): \n        return find_Index(n/2) \n    else: \n        return n*n\n[PYTHON]",
+        "test_list": [
+            "assert find_Index(2) == 4",
+            "assert find_Index(3) == 14",
+            "assert find_Index(4) == 45"
+        ],
+        "unit_test": "[PYTHON]\nassert find_Index(3)\n[PYTHON]",
+        "target": "import math \r\ndef find_Index(n): \r\n    x = math.sqrt(2 * math.pow(10,(n - 1))); \r\n    return round(x); ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+        "code": "[PYTHON]\ndef tuple_to_dict(t):\n    return {key:value for key,sublist in t}\n[PYTHON]",
+        "test_list": [
+            "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+            "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+            "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+        ],
+        "unit_test": "[PYTHON]\na = [3, 4, 5]\nb = [3, 4, 5, 6]\nc = [3, 4, 5, 6, 7]\n\n[PYTHON]",
+        "target": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to caluclate the area of a tetrahedron.",
+        "code": "[PYTHON]\ndef area_tetrahedron(A): \n    value = (A * (A + 1)) * (A + 2) / 2\n    return value\n[PYTHON]",
+        "test_list": [
+            "assert area_tetrahedron(3)==15.588457268119894",
+            "assert area_tetrahedron(20)==692.8203230275509",
+            "assert area_tetrahedron(10)==173.20508075688772"
+        ],
+        "unit_test": "[PYTHON]\nclass Solution:\n    def findSubstring(self, S):\n        return\n[PYTHON]",
+        "target": "import math\r\ndef area_tetrahedron(side):\r\n  area = math.sqrt(3)*(side*side)\r\n  return area",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to caluclate the area of a tetrahedron.",
+        "code": "[PYTHON]\ndef area_tetrahedron3(a, b, c): \n    area= a*b*c / 3\n    return area\n[PYTHON]",
+        "test_list": [
+            "assert area_tetrahedron(3)==15.588457268119894",
+            "assert area_tetrahedron(20)==692.8203230275509",
+            "assert area_tetrahedron(10)==173.20508075688772"
+        ],
+        "unit_test": "[PYTHON]\nassert 10 == 5+5\n[PYTHON]",
+        "target": "import math\r\ndef area_tetrahedron(side):\r\n  area = math.sqrt(3)*(side*side)\r\n  return area",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to caluclate the area of a tetrahedron.",
+        "code": "[PYTHON]\ndef area_tetrahedron(x): \n    return (math.sqrt(3) * (x * (3 - (x * x)) * (x * (3 - (x * x)) - 1)))\n[PYTHON]",
+        "test_list": [
+            "assert area_tetrahedron(3)==15.588457268119894",
+            "assert area_tetrahedron(20)==692.8203230275509",
+            "assert area_tetrahedron(10)==173.20508075688772"
+        ],
+        "unit_test": "[PYTHON]\nassert 10 == 10\n[PYTHON]",
+        "target": "import math\r\ndef area_tetrahedron(side):\r\n  area = math.sqrt(3)*(side*side)\r\n  return area",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to rotate a given list by specified number of items to the right direction.",
+        "code": "[PYTHON]\ndef rotate_right(L, direction):  \n    length = len(L)\n    new_list = [None] * (length-1)\n    for i in range(direction):\n        newListIndex = (i % length) + 1\n        new_list[newListIndex] = L[newListIndex]\n        L = L[:len(L) - newListIndex] + L[len(L) - newListIndex + 1:]\n    return new_list\n[PYTHON]",
+        "test_list": [
+            "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],3,4)==[8, 9, 10, 1, 2, 3, 4, 5, 6]",
+            "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2,2)==[9, 10, 1, 2, 3, 4, 5, 6, 7, 8]",
+            "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],5,2)==[6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8]"
+        ],
+        "unit_test": "[PYTHON]\nfrom itertools import cycle \nassert cycle([1, 2])\n[PYTHON]",
+        "target": "def rotate_right(list1,m,n):\r\n  result =  list1[-(m):]+list1[:-(n)]\r\n  return result",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to check if the given tuple has any none value or not.",
+        "code": "[PYTHON]\ndef has_none(items): \n    for element in items: \n        if element is None: \n            return True\n    return False\n[PYTHON]",
+        "test_list": [
+            "assert check_none((10, 4, 5, 6, None)) == True",
+            "assert check_none((7, 8, 9, 11, 14)) == False",
+            "assert check_none((1, 2, 3, 4, None)) == True"
+        ],
+        "unit_test": "[PYTHON]\nclass Solution(object):\n    def findMaxConsecutiveOnes(self, nums):\n        return sum(1 for i in range(len(nums)) if nums[i] == 1)\n[PYTHON]",
+        "target": "def check_none(test_tup):\r\n  res = any(map(lambda ele: ele is None, test_tup))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to check if the given tuple has any none value or not.",
+        "code": "[PYTHON]\ndef has_none(tuples):\n    return any(x is None for x in tuples)\n[PYTHON]",
+        "test_list": [
+            "assert check_none((10, 4, 5, 6, None)) == True",
+            "assert check_none((7, 8, 9, 11, 14)) == False",
+            "assert check_none((1, 2, 3, 4, None)) == True"
+        ],
+        "unit_test": "[PYTHON]\nassert [] == []\nassert [2,3,4] == [2,3,4]\nassert [1,2,3,4,6,5] == [1,2,3,4,6,5]\n[PYTHON]",
+        "target": "def check_none(test_tup):\r\n  res = any(map(lambda ele: ele is None, test_tup))\r\n  return (res) ",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to find numbers within a given range where every number is divisible by every digit it contains.",
+        "code": "[PYTHON]\ndef find_divisible(n): \n    divisibles = [i for i in range(1000) if i % 10 == 0] \n    return(divisibles[n // 10])\n[PYTHON]",
+        "test_list": [
+            "assert divisible_by_digits(1,22)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]",
+            "assert divisible_by_digits(1,15)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15]",
+            "assert divisible_by_digits(20,25)==[22, 24]"
+        ],
+        "unit_test": "[PYTHON]\nassert 0 == 0\n[PYTHON]",
+        "target": "def divisible_by_digits(startnum, endnum):\r\n    return [n for n in range(startnum, endnum+1) \\\r\n                if not any(map(lambda x: int(x) == 0 or n%int(x) != 0, str(n)))]",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to find the longest common subsequence for the given three string sequence.",
+        "code": "[PYTHON]\ndef lcs_of_three(A,B,C):\n    index = {}\n    for i in range(0, len(A)):\n        for j in range(0, len(B)):\n            if A[i] == B[j]:\n                index[(i,j)] = index[(i,j-1)] if (i > 0) and (B[j-1] == A[i]) else 1\n            else:\n                index[(i,j)] = 0\n    return index\n[PYTHON]",
+        "test_list": [
+            "assert lcs_of_three('AGGT12', '12TXAYB', '12XBA', 6, 7, 5) == 2",
+            "assert lcs_of_three('Reels', 'Reelsfor', 'ReelsforReels', 5, 8, 13) == 5 ",
+            "assert lcs_of_three('abcd1e2', 'bc12ea', 'bd1ea', 7, 6, 5) == 3"
+        ],
+        "unit_test": "[PYTHON]\nassert [] == []\n[PYTHON]",
+        "target": "def lcs_of_three(X, Y, Z, m, n, o): \r\n\tL = [[[0 for i in range(o+1)] for j in range(n+1)] \r\n\t\tfor k in range(m+1)] \r\n\tfor i in range(m+1): \r\n\t\tfor j in range(n+1): \r\n\t\t\tfor k in range(o+1): \r\n\t\t\t\tif (i == 0 or j == 0 or k == 0): \r\n\t\t\t\t\tL[i][j][k] = 0\r\n\t\t\t\telif (X[i-1] == Y[j-1] and\r\n\t\t\t\t\tX[i-1] == Z[k-1]): \r\n\t\t\t\t\tL[i][j][k] = L[i-1][j-1][k-1] + 1\r\n\t\t\t\telse: \r\n\t\t\t\t\tL[i][j][k] = max(max(L[i-1][j][k], \r\n\t\t\t\t\tL[i][j-1][k]), \r\n\t\t\t\t\t\t\t\t\tL[i][j][k-1]) \r\n\treturn L[m][n][o]",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to put spaces between words starting with capital letters in a given string by using regex.",
+        "code": "[PYTHON]\nimport re\ndef capital_words_spaces(text): \n    text = re.sub(r'[A-Z][\\w\\s]*', lambda x: x + ' ', text)\n    return text.strip()\n[PYTHON]",
+        "test_list": [
+            "assert capital_words_spaces(\"Python\") == 'Python'",
+            "assert capital_words_spaces(\"PythonProgrammingExamples\") == 'Python Programming Examples'",
+            "assert capital_words_spaces(\"GetReadyToBeCodingFreak\") == 'Get Ready To Be Coding Freak'"
+        ],
+        "unit_test": "[PYTHON]\nassert capital_words_spaces('hello world') == 'hello world'\n[PYTHON]",
+        "target": "import re\r\ndef capital_words_spaces(str1):\r\n  return re.sub(r\"(\\w)([A-Z])\", r\"\\1 \\2\", str1)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to put spaces between words starting with capital letters in a given string by using regex.",
+        "code": "[PYTHON]\ndef capital_words_spaces(text): \n    words = re.split(r'\\b[A-Z]\\b') \n    return ' '.join(words)\n[PYTHON]",
+        "test_list": [
+            "assert capital_words_spaces(\"Python\") == 'Python'",
+            "assert capital_words_spaces(\"PythonProgrammingExamples\") == 'Python Programming Examples'",
+            "assert capital_words_spaces(\"GetReadyToBeCodingFreak\") == 'Get Ready To Be Coding Freak'"
+        ],
+        "unit_test": "[PYTHON]\n[PYTHON]\nassert capital_words_spaces(\"Hello World!\")\n[PYTHON]",
+        "target": "import re\r\ndef capital_words_spaces(str1):\r\n  return re.sub(r\"(\\w)([A-Z])\", r\"\\1 \\2\", str1)",
+        "ground_truth": false
+    },
+    {
+        "question": "Write a function to put spaces between words starting with capital letters in a given string by using regex.",
+        "code": "[PYTHON]\ndef capital_words_spaces(text): \n    words = re.split(r'\\b[A-Z]\\b') \n    return ' '.join(words)\n[PYTHON]",
+        "test_list": [
+            "assert capital_words_spaces(\"Python\") == 'Python'",
+            "assert capital_words_spaces(\"PythonProgrammingExamples\") == 'Python Programming Examples'",
+            "assert capital_words_spaces(\"GetReadyToBeCodingFreak\") == 'Get Ready To Be Coding Freak'"
+        ],
+        "unit_test": "[PYTHON]\nseq=[3, 5, 2, 7, 1]  \nassert 0==0\n[PYTHON]",
+        "target": "import re\r\ndef capital_words_spaces(str1):\r\n  return re.sub(r\"(\\w)([A-Z])\", r\"\\1 \\2\", str1)",
+        "ground_truth": false
+    }
+]

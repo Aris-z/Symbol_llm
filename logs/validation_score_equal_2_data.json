@@ -1,0 +1,282 @@
+[
+    {
+        "code_id": 0,
+        "validation_id": 0,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value: \n            return index\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,2,3,3,3,4,5], 3) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.11857225837290158,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 1,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value: \n            return index\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,2,3,4,5,5,5,5,6,7], 5) == 4\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.22098349708582007,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 2,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value: \n            return index\n    return -1\n",
+        "response": "[PYTHON]\nassert 0==0\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.5932027787211279,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 3,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value: \n            return index\n    return -1\n",
+        "response": "[PYTHON]\nassert [x for x in [1, 2, 3, 4, 5]] == [1, 2, 3, 4, 5]\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.23110724270872104,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 0,
+        "validation_id": 4,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, value): \n    for index, element in enumerate(arr): \n        if element == value: \n            return index\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 4, 5, 5, 5, 5], 5) == 4\nassert find_first_occurrence([1, 2, 3, 4, 5, 6], 3) == 2\nassert find_first_occurrence([1, 2, 3, 4], 10) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.2100983482491556,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 0,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for i, num in enumerate(arr): \n        if num == target: \n            return i\n    return None\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3)\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.10684040022054112,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 1,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for i, num in enumerate(arr): \n        if num == target: \n            return i\n    return None\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 4, 5, 6], 1) == 0\nassert find_first_occurrence([1, 2, 3, 4, 5, 6], 5) == 4\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.10307839480591785,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 3,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for i, num in enumerate(arr): \n        if num == target: \n            return i\n    return None\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3) == 2\nassert find_first_occurrence([1, 1, 1, 1, 1, 1, 1, 1], 1) == 0\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.10690336595089071,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 1,
+        "validation_id": 4,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for i, num in enumerate(arr): \n        if num == target: \n            return i\n    return None\n",
+        "response": "[PYTHON]\narr = [1, 2, 3, 4, 5, 6, 7, 8, 9,10]\nassert find_first_occurrence(arr,1)==0\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.30257444616925355,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 0,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for index, value in enumerate(arr):\n        if (value == target):\n            return index\n    return(-1)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.06037419994446238,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 1,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for index, value in enumerate(arr):\n        if (value == target):\n            return index\n    return(-1)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,2,3,3,3,3,4,5,6], 3) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.14626971000685982,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 2,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for index, value in enumerate(arr):\n        if (value == target):\n            return index\n    return(-1)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,2,2,2,2,2,2,3,4,5],1)==0\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.34449596128005183,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 3,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for index, value in enumerate(arr):\n        if (value == target):\n            return index\n    return(-1)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([ 2, 5, 6, 8, 9, 10], 6)\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.38547349151940286,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 2,
+        "validation_id": 4,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, target): \n    for index, value in enumerate(arr):\n        if (value == target):\n            return index\n    return(-1)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4], 3)\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.2550144752009559,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 0,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, element): \n    for i, ele in enumerate(arr):\n        if ele == element:\n            return i\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3) == 2\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 5) == 6\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 6) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.06460732506882418,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 1,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, element): \n    for i, ele in enumerate(arr):\n        if ele == element:\n            return i\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 3, 3, 4, 5], 3) == 2\nassert find_first_occurrence([1, 1, 1, 1, 1, 1, 1], 1) == 0\nassert find_first_occurrence([1, 1, 1, 1, 1, 1, 1], 2) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.06767159009875102,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 2,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, element): \n    for i, ele in enumerate(arr):\n        if ele == element:\n            return i\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 4, 5], 3) == 2\nassert find_first_occurrence([1, 2, 3, 4, 5], 10) == -1\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.11481592953801553,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 3,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, element): \n    for i, ele in enumerate(arr):\n        if ele == element:\n            return i\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 3, 3], 3) == 2\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.21115848176179688,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 3,
+        "validation_id": 4,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(arr, element): \n    for i, ele in enumerate(arr):\n        if ele == element:\n            return i\n    return -1\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 1, 2, 2, 3], 1) == 0\nassert find_first_occurrence([1, 2, 2, 3, 3], 2) == 1\nassert find_first_occurrence([1, 1, 2, 2, 3], 3) == 4\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.1664048599758426,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    },
+    {
+        "code_id": 4,
+        "validation_id": 0,
+        "question": "Write a function to find the index of the first occurrence of a given number in a sorted array.",
+        "solution_code": "\ndef find_first_occurrence(A,B): \n    x = 0\n    for i in range(len(A)): \n        if (A[i] == B): \n            x = i\n    return (x)\n",
+        "response": "[PYTHON]\nassert find_first_occurrence([1, 2, 3, 4, 5, 6], 2)\n[PYTHON]",
+        "target": "def find_first_occurrence(A, x):\r\n    (left, right) = (0, len(A) - 1)\r\n    result = -1\r\n    while left <= right:\r\n        mid = (left + right) // 2\r\n        if x == A[mid]:\r\n            result = mid\r\n            right = mid - 1\r\n        elif x < A[mid]:\r\n            right = mid - 1\r\n        else:\r\n            left = mid + 1\r\n    return result",
+        "logprobs": -0.19479719368564255,
+        "test_list": [
+            "assert find_first_occurrence([2, 5, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 1",
+            "assert find_first_occurrence([2, 3, 5, 5, 6, 6, 8, 9, 9, 9], 5) == 2",
+            "assert find_first_occurrence([2, 4, 1, 5, 6, 6, 8, 9, 9, 9], 6) == 4"
+        ]
+    }
+]
